@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         clash: ["Clash Display", "sans-serif"],
+        circular: ["Circular Std", "sans-serif"],
       },
     },
   },

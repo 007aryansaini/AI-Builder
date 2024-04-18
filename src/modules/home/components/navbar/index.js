@@ -3,7 +3,9 @@ import React from "react";
 export default function Navbar() {
   return (
     <header className="w-full text-white font-clash">
+      
       <div className=" fixed w-full h-[10vh] bg-black/40 z-10 flex items-center">
+
         <div className="w-full flex justify-between items-center px-[4%]">
           <h4 className="text-white font-bold text-2xl">LOGO</h4>
           <nav>
