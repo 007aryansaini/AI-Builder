@@ -3,6 +3,7 @@ import NavFootLayout from "./layouts/NavFootLayout";
 import Hero from "./feauture/hero";
 import Brands from "./feauture/brands";
 import Build from "./feauture/build";
+import Products from "./feauture/products";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           <Hero />
           <Brands />
           <Build />
+          <Products/>
         </div>
       </NavFootLayout>
     </div>
