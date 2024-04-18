@@ -3,8 +3,13 @@ import Marquee from "react-fast-marquee";
 
 function BrandSlider() {
   return (
-    <div className="">
-
+    <div className="mt-[5%]">
+      <div className="text-white flex flex-col justify-center items-center ">
+        <h1 className="font-clash font-bold text-[60px]">3,000+</h1>
+        <h4 className="font-circular text-2xl">
+          Creators, startups and agencies use Webstudio every month.
+        </h4>
+      </div>
       <div>
         <Marquee className="mq" direction="right" speed={60}>
           <div className="image_wrapper">
