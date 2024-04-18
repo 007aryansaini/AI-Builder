@@ -4,6 +4,8 @@ import Hero from "./feauture/hero";
 import Brands from "./feauture/brands";
 import Build from "./feauture/build";
 import Products from "./feauture/products";
+import Chainlist from "./feauture/chainlist";
+import Pricings from "./feauture/pricing";
 
 export default function Home() {
   return (
@@ -14,6 +16,8 @@ export default function Home() {
           <Brands />
           <Build />
           <Products/>
+          <Chainlist/>
+          <Pricings/>
         </div>
       </NavFootLayout>
     </div>
