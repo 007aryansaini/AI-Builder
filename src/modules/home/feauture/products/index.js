@@ -3,7 +3,7 @@ import bg from "../../assets/bg.jpg";
 export default function Products() {
   return (
     <div>
-      <div className="w-full  flex flex-col items-center text-white">
+      <div className="w-full  flex flex-col items-center text-white px-[5%]">
         <h4 className="text-[40px] font-clash font-semibold text-center leading-[45px]">
           Discover inspiring sites built by <br /> the Webstudio community
         </h4>
