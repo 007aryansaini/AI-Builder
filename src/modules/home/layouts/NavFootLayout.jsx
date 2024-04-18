@@ -6,7 +6,7 @@ import Navbar from "../components/navbar";
 export default function NavFootLayout(props) {
   return (
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       {props.children}
       <Footer/>
     </div>
