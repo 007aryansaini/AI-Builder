@@ -21,7 +21,7 @@ const FormProvider = ({ children }) => {
 
   
   return (
-    <FormContext.Provider value={{ template, handleInputChange}}>
+    <FormContext.Provider value={{ template, handleInputChange,setTemplate}}>
       {children}
     </FormContext.Provider>
   );

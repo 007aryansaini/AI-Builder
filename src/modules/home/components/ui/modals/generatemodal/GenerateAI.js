@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "../../../../../../context/store";
 import { useNavigate } from "react-router-dom";
 import bg from "../../../../assets/bg.jpg"
+import { FiRefreshCcw } from "react-icons/fi";
 
 export default function GenerateAIModal({ visible, onClose }) {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ export default function GenerateAIModal({ visible, onClose }) {
     purpose: "",
   });
 
-  const { handleInputChange, template } = useForm();
+  const { handleInputChange, template,setTemplate } = useForm();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,8 +26,16 @@ export default function GenerateAIModal({ visible, onClose }) {
     
 
    console.log(formState)
+   
   };
-
+   const handleReset = () => {
+    setTemplate({
+      websiteTitle: "",
+      description: "",
+      purpose: "",
+    });
+  }
+  
   if (!visible) return null;
 
   return (
@@ -79,11 +88,11 @@ export default function GenerateAIModal({ visible, onClose }) {
             <button onClick={handleClose} class="font-clash ">
               Ok, Close
             </button>
-            <div class="font-clash py-[4%] ">
+            <div class="font-clash py-[2%] ">
               <h5 className="text-3xl font-semibold">
                 Let's create your Website
               </h5>
-              <div className="mt-[4%]">
+              <div className="mt-[2%]">
                 <label className="text-lg ">Looking for?</label>
                 <div class="grid sm:grid-cols-3">
                   <div class="flex h-[44px] px-4 rounded-[6px] items-center gap-3 border border-white w-full">
@@ -94,7 +103,7 @@ export default function GenerateAIModal({ visible, onClose }) {
               </div>
               <form
                 onSubmit={handleSubmit}
-                className="flex h-[53vh] justify-between flex-col mt-[4%]"
+                className="flex h-[57vh] justify-between flex-col mt-[4%]"
               >
                 <div class="flex flex-col">
                   <label>Website Title</label>
@@ -134,7 +143,16 @@ export default function GenerateAIModal({ visible, onClose }) {
                   type="submit"
                   value="Generate my site"
                 />
-               
+                <div className="flex justify-end">
+                  <button
+                    className="bg-white flex items-center justify-center gap-3 w-[100px] h-[44px] text-black rounded-[6px] font-medium "
+                    type="button"
+                    onClick={handleReset}
+                  >
+                    <FiRefreshCcw />
+                    Reset
+                  </button>
+                </div>
               </form>
             </div>
           </div>
