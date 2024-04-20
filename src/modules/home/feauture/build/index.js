@@ -8,7 +8,7 @@ export default function Build() {
         <h2 className="sm:text-[30px] text-[22px]  font-clash">
           Build professional webiste <br className='sm:flex hidden' /> 10x faster with the help of AI
         </h2>
-        <p className="sm:w-[500px] w-full font-circular sm:base text-sm sm:py-0 py-5 ">
+        <p className="sm:w-[500px] w-full font-circular sm:text-base text-sm sm:py-0 py-5 ">
           Now everyone can be a web3 builder! With Webstudio's intuitive tools,
           you can quickly build the interface of a new website powered by smart
           contracts. It&apos;s like a game: simple, fun, and easy.

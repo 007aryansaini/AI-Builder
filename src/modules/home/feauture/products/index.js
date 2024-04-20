@@ -3,11 +3,11 @@ import bg from "../../assets/bg.jpg";
 export default function Products() {
   return (
     <div>
-      <div className="w-full  flex flex-col items-center text-white px-[5%]">
-        <h4 className="text-[40px] font-clash font-semibold text-center leading-[45px]">
+      <div className="w-full  flex flex-col items-center text-white sm:px-[5%] px-[4%]">
+        <h4 className="sm:text-[40px] text-[30px] px-[30px] font-clash font-semibold text-center leading-[30px] sm:leading-[45px]">
           Discover inspiring sites built by <br /> the Webstudio community
         </h4>
-        <p className="font-circular text-[20px] text-center w-[500px] my-5">
+        <p className="font-circular sm:text-[20px] text-base text-center sm:w-[500px] my-5">
           For landing pages, portfolios, link in bio, NFT minting portals and
           any user-facing experience powered by smart contracts.
         </p>
