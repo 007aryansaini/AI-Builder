@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     
     <header className="w-full text-white font-clash">
-      <div className=" fixed w-full h-[10vh] bg-black/40 z-10 flex items-center">
+      <div className=" fixed w-full sm:h-[10vh] h-[8vh] bg-black/40 z-10 flex items-center">
         <div className=" max-w-[1440px] mx-auto w-full">
           <div className="w-full flex justify-between items-center sm:px-[5%] px-[4%]">
             <Link to="/">
