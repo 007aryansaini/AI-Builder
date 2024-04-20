@@ -69,12 +69,12 @@ export default function GenerateAIModal({ visible, onClose }) {
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      <div className="bg-black text-white w-[60%] h-[75vh]">
-        <div class="grid grid-cols-12 w-full h-full">
-          <div class="col-span-4 w-full h-full">
+      <div className="bg-black text-white w-[90%] h-[75vh]">
+        <div class="grid sm:grid-cols-12 w-full h-full">
+          <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
           </div>
-          <div class="col-span-8 w-full px-[10%]">
+          <div class="col-span-8 w-full sm:px-[10%] px-[5%]">
             <button onClick={handleClose} class="font-clash ">
               Ok, Close
             </button>
@@ -84,7 +84,7 @@ export default function GenerateAIModal({ visible, onClose }) {
               </h5>
               <div className="mt-[4%]">
                 <label className="text-lg ">Looking for?</label>
-                <div class="grid grid-cols-3">
+                <div class="grid sm:grid-cols-3">
                   <div class="flex h-[44px] px-4 rounded-[6px] items-center gap-3 border border-white w-full">
                     <div class="w-[20px] h-[20px] border rounded-full"></div>
                     <h6>WEBSITE</h6>
