@@ -69,7 +69,7 @@ export default function GenerateAIModal({ visible, onClose }) {
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      <div className="bg-black text-white w-[60%] h-[60vh]">
+      <div className="bg-black text-white w-[60%] h-[75vh]">
         <div class="grid grid-cols-12 w-full h-full">
           <div class="col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
@@ -93,7 +93,7 @@ export default function GenerateAIModal({ visible, onClose }) {
               </div>
               <form
                 onSubmit={handleSubmit}
-                className="flex h-[40vh] justify-between flex-col mt-[4%]"
+                className="flex h-[53vh] justify-between flex-col mt-[4%]"
               >
                 <div class="flex flex-col">
                   <label>Website Title</label>
