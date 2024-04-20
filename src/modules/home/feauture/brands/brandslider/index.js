@@ -3,10 +3,10 @@ import Marquee from "react-fast-marquee";
 
 function BrandSlider() {
   return (
-    <div className="mt-[5%]">
+    <div className="sm:mt-[5%] mt-[7%]">
       <div className="text-white flex flex-col justify-center items-center ">
-        <h1 className="font-clash font-bold text-[60px]">3,000+</h1>
-        <h4 className="font-circular text-2xl">
+        <h1 className="font-clash font-bold text-[40px] sm:text-[60px]">3,000+</h1>
+        <h4 className="font-circular text-center text-lg  sm:text-2xl">
           Creators, startups and agencies use Webstudio every month.
         </h4>
       </div>

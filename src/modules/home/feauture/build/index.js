@@ -4,7 +4,7 @@ import BuildTabs from '../../components/ui/tabs/buildtab/BuildTab';
 export default function Build() {
   return (
     <div className="text-white flex flex-col  h-screen justify-center px-[5%]">
-      <div className="flex w-full justify-between ">
+      <div className="flex w-fullsm:flex-row flex-col justify-between ">
         <h2 className="text-[30px]  font-clash">
           Build professional webiste <br /> 10x faster with the help of AI
         </h2>

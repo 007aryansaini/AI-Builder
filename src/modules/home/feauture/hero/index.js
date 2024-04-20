@@ -33,7 +33,7 @@ export default function Hero() {
           Automate Development <br className="sm:flex hidden" /> AI for
           Development
         </h1>
-        <p className="text-white text-center font-circular sm:text-lg py-4 sm:py-[1.5%]">
+        <p className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
           Create unique brand identity,generate and pushlish{" "}
           <br className="sm:flex hidden" /> consistence while we make devlopment
           easy as it always <br className="sm:flex hidden" />
@@ -43,7 +43,7 @@ export default function Hero() {
           onClick={() => {
             setShowModal(true);
           }}
-          className=" bg-[#8d00ce] px-8 rounded-[50px] mt-4 sm:mt-2 font-clash text-white font-semibold py-2"
+          className=" bg-[#8d00ce] px-8 rounded-[50px] mt-2 sm:mt-2 font-clash text-white font-semibold py-2"
         >
           Generate your website
         </button>
