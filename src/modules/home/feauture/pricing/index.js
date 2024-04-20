@@ -4,10 +4,10 @@ export default function Pricings() {
   return (
     <div>
       <div className=" flex flex-col justify-center items-center text-white sm:px-[8%] px-[4%]">
-        <h2 className="text-[50px] leading-[50px] mb-3 text-center font-clash font-bold">
-          Simple, transparent & flexible <br /> pricing for every nee
+        <h2 className="sm:text-[40px] text-[30px] sm:leading-[50px] leading-[30px] mb-3 text-center font-clash font-bold">
+          Simple, transparent & flexible <br className="sm:flex hidden"/> pricing for every nee
         </h2>
-        <p className="text-xl font-circular w-[600px]">
+        <p className="sm:text-xl text-base  font-circular text-center sm:w-[600px]">
           You can get started for free and change your plan as you grow.
         </p>
         <div className="grid sm:grid-cols-3 gap-8 items-center w-full mt-[5%]">
