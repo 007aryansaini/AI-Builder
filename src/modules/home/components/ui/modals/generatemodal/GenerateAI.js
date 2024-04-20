@@ -10,9 +10,9 @@ export default function GenerateAIModal({ visible, onClose }) {
   };
 
   const [formState, setFormState] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    websiteTitle: "",
+    description: "",
+    purpose: "",
   });
 
   const { handleInputChange, template } = useForm();
@@ -23,7 +23,8 @@ export default function GenerateAIModal({ visible, onClose }) {
     handleInputChange(event);
     navigate("/generated-page");
     
-  
+
+   console.log(formState)
   };
 
   if (!visible) return null;
