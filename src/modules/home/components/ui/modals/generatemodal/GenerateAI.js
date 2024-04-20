@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "../../../../../../context/store";
 import { useNavigate } from "react-router-dom";
 import bg from "../../../../assets/bg.jpg"
 
 export default function GenerateAIModal({ visible, onClose }) {
-     const [loading, setLoading] = useState(true);
-     useEffect(() => {
-       setTimeout(() => {
-         setLoading(false);
-       }, 3000);
-     }, []);
   const navigate = useNavigate();
   const handleClose = (e) => {
     if (e.target.id === "container") onClose();
@@ -132,11 +126,12 @@ export default function GenerateAIModal({ visible, onClose }) {
                     required
                   ></textarea>
                 </div>
-                <input value="Generate my site" />
-                <button
+                <input
                   className="bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
-                >{loading ? <Loader/>:"Generate my site"}</button>
+                  value="Generate my site"
+                />
+               
               </form>
             </div>
           </div>
