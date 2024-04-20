@@ -18,7 +18,7 @@ export default function Hero() {
         <motion.div className=" rotate-180 ">
           <motion.div
             variants={fadeIn("down", "tween", 0.8, 1)}
-            className=" topp w-[100%] sm:h-[200px] h-[200px] "
+            className=" topp w-[100%] sm:h-[200px] h-[100px] "
           ></motion.div>
         </motion.div>
       </div>

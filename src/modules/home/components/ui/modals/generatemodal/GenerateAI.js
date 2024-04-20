@@ -22,6 +22,8 @@ export default function GenerateAIModal({ visible, onClose }) {
     console.log(template);
     handleInputChange(event);
     navigate("/generated-page");
+    
+  
   };
 
   if (!visible) return null;
