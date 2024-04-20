@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -6,7 +7,11 @@ export default function Navbar() {
       <div className=" fixed w-full h-[10vh] bg-black/40 z-10 flex items-center">
         <div className=" max-w-[1440px] mx-auto w-full">
           <div className="w-full flex justify-between items-center px-[5%]">
-            <h4 className="text-white font-bold text-2xl">LOGO</h4>
+            <Link to="/">
+              {" "}
+              <h4 className="text-white font-bold text-2xl">LOGO</h4>
+            </Link>
+
             <nav>
               <ul className="flex gap-6 items-center text-white ">
                 <li>Home</li>

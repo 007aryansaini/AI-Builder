@@ -1,8 +1,11 @@
-import React from "react";
+import React,{useState} from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, slideIn, fadeIn } from "../../utils/motion";
 import web3 from "../../assets/web3.png"
+import GenerateAIModal from "../../components/ui/modals/generatemodal/GenerateAI";
 export default function Hero() {
+    const [showModal, setShowModal] = useState(false);
+    const handleClose = () => setShowModal(false);
   return (
     <motion.div
       variants={staggerContainer}
@@ -34,9 +37,15 @@ export default function Hero() {
           while we make devlopment easy as it always <br />
           feels good to to things perfectedly
         </p>
-        <button className=" bg-[#8d00ce] px-8 rounded-[50px] mt-2 font-clash text-white font-semibold py-2">
+        <button
+          onClick={() => {
+            setShowModal(true);
+          }}
+          className=" bg-[#8d00ce] px-8 rounded-[50px] mt-2 font-clash text-white font-semibold py-2"
+        >
           Generate your website
         </button>
+        <GenerateAIModal onClose={handleClose} visible={showModal} />
         <div className="mt-[5%]">
           <img className="" src={web3} alt="web3" />
         </div>
