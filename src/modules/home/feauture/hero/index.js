@@ -33,12 +33,12 @@ export default function Hero() {
           Automate Development <br className="sm:flex hidden" /> AI for
           Development
         </h1>
-        <p className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
+        <motion.p  className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
           Create unique brand identity,generate and pushlish{" "}
           <br className="sm:flex hidden" /> consistence while we make devlopment
           easy as it always <br className="sm:flex hidden" />
           feels good to to things perfectedly
-        </p>
+        </motion.p>
         <button
           onClick={() => {
             setShowModal(true);
@@ -49,7 +49,12 @@ export default function Hero() {
         </button>
         <GenerateAIModal onClose={handleClose} visible={showModal} />
         <div className="sm:mt-[5%] mt-[10%]">
-          <img className="" src={web3} alt="web3" />
+          <motion.img
+            
+            className=""
+            src={web3}
+            alt="web3"
+          />
         </div>
       </div>
     </motion.div>
