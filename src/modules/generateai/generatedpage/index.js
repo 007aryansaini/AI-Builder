@@ -15,7 +15,7 @@ export default function GeneratedPage() {
     <NavFootLayout>
       {loading ? (
         <div className="h-screen flex justify-center items-center">
-          <h4 className="font-clash text-white text-[40px]">Generating Your Site Please Wait.........</h4>
+          <h4 className="font-clash text-white sm:text-[40px] text-center ">Generating Your Site Please Wait.........</h4>
         </div>
       ) : (
         <div>
