@@ -18,23 +18,25 @@ export default function Hero() {
         <motion.div className=" rotate-180 ">
           <motion.div
             variants={fadeIn("down", "tween", 0.8, 1)}
-            className=" topp w-[100%] sm:h-[200px] h-[120px] "
+            className=" topp w-[100%] sm:h-[200px] h-[110px] "
           ></motion.div>
         </motion.div>
       </div>
       <div className="relative"></div>
       <div className="gradient-01 absolute w-[30%] inset-0 z-[-10]" />
 
-      <div className=" mt-[6%] flex flex-col justify-center items-center w-full ">
+      <div className="sm:px-0 px-[4%] mt-[6%] flex flex-col justify-center items-center w-full ">
         <h5 className="text-white btn px-5 py-2 rounded-[50px] font-clash mb-[2%]">
           Updated: AI Integrated
         </h5>
-        <h1 className="text-white font-clash text-[50px] text-center font-bold leading-[50px]">
-          Automate Development <br /> AI for Development
+        <h1 className="text-white font-clash sm:text-[50px] text-[32px] text-center font-bold sm:leading-[50px] leading-[36px]">
+          Automate Development <br className="sm:flex hidden" /> AI for
+          Development
         </h1>
-        <p className="text-white text-center font-circular text-lg py-[1.5%]">
-          Create unique brand identity,generate and pushlish <br /> consistence
-          while we make devlopment easy as it always <br />
+        <p className="text-white text-center font-circular sm:text-lg py-[1.5%]">
+          Create unique brand identity,generate and pushlish{" "}
+          <br className="sm:flex hidden" /> consistence while we make devlopment
+          easy as it always <br className="sm:flex hidden" />
           feels good to to things perfectedly
         </p>
         <button
