@@ -37,7 +37,7 @@ const BuildTabs = () => {
 
   return (
     <div className="text-white font-clash ">
-      <div className="flex sm:gap-7 items-center">
+      <div className="flex sm:flex-row flex-col gap-7 items-center">
         {tabs.map((tab, index) => (
           <button
             key={index}
