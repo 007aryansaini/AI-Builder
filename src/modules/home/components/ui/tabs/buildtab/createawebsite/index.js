@@ -14,7 +14,7 @@ export default function Createawebsite() {
             your unique website within minutes.Create and customize your unique
             website within minutes.
           </p>
-          <button className="px-8 py-2 bg-white text-black rounded-[50px]">
+          <button className="px-8 py-2 bg-white text-black rounded-[50px] sm:text-base">
             Unlock this feauture
           </button>
         </div>
