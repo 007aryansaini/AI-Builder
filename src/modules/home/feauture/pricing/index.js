@@ -3,14 +3,14 @@ import { IoIosCheckmark } from "react-icons/io";
 export default function Pricings() {
   return (
     <div>
-      <div className=" flex flex-col justify-center items-center text-white px-[8%]">
+      <div className=" flex flex-col justify-center items-center text-white sm:px-[8%] px-[4%]">
         <h2 className="text-[50px] leading-[50px] mb-3 text-center font-clash font-bold">
           Simple, transparent & flexible <br /> pricing for every nee
         </h2>
         <p className="text-xl font-circular w-[600px]">
           You can get started for free and change your plan as you grow.
         </p>
-        <div className="grid grid-cols-3 gap-8 items-center w-full mt-[5%]">
+        <div className="grid sm:grid-cols-3 gap-8 items-center w-full mt-[5%]">
           <div>
             <div className="w-full rounded-[14px] bg-[#1A191E] p-5">
               <h5 className="text-xl font-clash font-medium">Free Plan</h5>

@@ -37,14 +37,14 @@ const BuildTabs = () => {
 
   return (
     <div className="text-white font-clash ">
-      <div className="flex gap-7 items-center">
+      <div className="flex sm:gap-7 items-center">
         {tabs.map((tab, index) => (
           <button
             key={index}
             id={tab.id}
             disabled={currentTab === `${tab.id}`}
             onClick={handleTabChange}
-            className={`cursor-pointer text-sm font-medium  font-poppins ${
+            className={`cursor-pointer sm:text-sm text-[12px] font-medium  font-poppins ${
               currentTab === `${tab.id}`
                 ? "text-white border-b-[2px] border-white"
                 : "text-gray-700"

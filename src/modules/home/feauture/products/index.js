@@ -11,7 +11,7 @@ export default function Products() {
           For landing pages, portfolios, link in bio, NFT minting portals and
           any user-facing experience powered by smart contracts.
         </p>
-        <div className="grid grid-cols-4 gap-6 mt-[3%]">
+        <div className="grid sm:grid-cols-4 gap-6 mt-[3%]">
           <div className="h-[450px] cursor-pointer">
             <div className="w-full h-[350px] ">
               <img
