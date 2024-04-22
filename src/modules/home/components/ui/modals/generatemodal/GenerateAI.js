@@ -79,7 +79,7 @@ export default function GenerateAIModal({ visible, onClose }) {
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      <div className="bg-black text-white w-[90%] h-[75vh]">
+      <div className="bg-black text-white w-[90%] h-[80vh]">
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
@@ -92,7 +92,7 @@ export default function GenerateAIModal({ visible, onClose }) {
               <h5 className="text-3xl font-semibold">
                 Let's create your Website
               </h5>
-              <div className="mt-[2%]">
+              {/* <div className="mt-[2%]">
                 <label className="text-lg ">Looking for?</label>
                 <div class="grid sm:grid-cols-3">
                   <div class="flex h-[44px] px-4 rounded-[6px] items-center gap-3 border border-white w-full">
@@ -100,10 +100,10 @@ export default function GenerateAIModal({ visible, onClose }) {
                     <h6>WEBSITE</h6>
                   </div>
                 </div>
-              </div>
+              </div> */}
               <form
                 onSubmit={handleSubmit}
-                className="flex h-[57vh] justify-between flex-col mt-[4%]"
+                className="flex h-[75vh] justify-between flex-col mt-[4%]"
               >
                 <div class="flex flex-col">
                   <label>Website Title</label>
