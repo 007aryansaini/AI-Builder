@@ -40,14 +40,14 @@ const Tabs = () => {
 
   return (
     <div className="text-white">
-      <div className="flex gap-5 items-center">
+      <div className="flex sm:gap-5 justify-between sm:justify-start sm:w-full    items-center">
         {tabs.map((tab, index) => (
           <button
             key={index}
             id={tab.id}
             disabled={currentTab === `${tab.id}`}
             onClick={handleTabChange}
-            className={`cursor-pointer text-xl   font-poppins ${
+            className={`cursor-pointer sm:text-xl text-sm   font-poppins ${
               currentTab === `${tab.id}` ? "text-[#9747FF] " : ""
             }`}
           >

@@ -32,7 +32,7 @@ export const Button = ({
       onClick={onClick}
       className={`
           ${getVariant(variant)}  transition duration-75 font-poppins  ${
-        !paddingLess && "xl:px-[20px] lg:px-[14px] lg:py-2 px-4 py-2 "
+        !paddingLess && "xl:px-[20px] lg:px-[14px] lg:py-2 px-4  py-2 "
       }  ${
         !square && "rounded-[8px] sm:rounded-[10px] "
       } active:scale-95 ${className}  ${

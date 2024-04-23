@@ -6,7 +6,7 @@ export default function Footer() {
        const { template } = useForm();
   return (
 
-    <div className="text-white flex justify-between items-center w-full  my-10 font-poppins">
+    <div className="text-white flex sm:flex-row flex-col justify-between items-center w-full  my-10 font-poppins">
       <h5>
         © Copyright 2021 - 2024 {template?.websiteTitle}
         <span></span> | All Rights Reserved
