@@ -28,7 +28,7 @@ function TokenMinting() {
   return (
     <div>
       <div className="bg-[#1C1C33] p-[2%] rounded-lg font-poppins flex flex-col space-y-6">
-        <div className="bg-[#22223E] p-[2%] rounded-lg flex justify-between items-center w-full">
+        <div className="bg-[#22223E] p-[2%] rounded-lg flex sm:flex-row flex-col justify-between sm:items-center w-full">
           <div>
             <h5 className="font-semibold  text-xl">Token Minting</h5>
             <h6 className="text-[#9CA3AF] text-base">

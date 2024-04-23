@@ -8,8 +8,8 @@ import AllToken from "./AllToken";
 export default function Token() {
   return (
     <div className="">
-      <div className="grid grid-cols-2 gap-5  w-full">
-        <div className="col-span-1 bg-[#16162A] p-[2%] rounded-xl">
+      <div className="grid sm:grid-cols-2 gap-5  w-full">
+        <div className="col-span-1 w-full bg-[#16162A] p-[2%] rounded-xl">
           <TopTokens />
         </div>
         <div className="col-span-1 bg-[#16162A] p-[2%] rounded-xl">

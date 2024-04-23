@@ -11,7 +11,7 @@ export default function MyTokens() {
   return (
     <div>
       <div className="bg-[#1C1C33] p-[2%] rounded-lg font-poppins flex flex-col space-y-6">
-        <div className="bg-[#22223E] p-[2%] rounded-lg flex sm:flex-row flex-col justify-between sm:items-center w-full">
+        <div className="bg-[#22223E] sm:p-[2%] p-[4%] rounded-lg flex sm:flex-row flex-col justify-between sm:items-center w-full">
           <div>
             <h5 className="font-semibold  text-xl">Token Manager</h5>
             <h6 className="text-[#9CA3AF] text-base">
@@ -21,7 +21,7 @@ export default function MyTokens() {
               <a>Start Tutorial</a>
             </h6>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-3 sm:mt-0 mt-[3%]">
             <Button>Create Token</Button>
             <Button>OpenBook Manager</Button>
           </div>
