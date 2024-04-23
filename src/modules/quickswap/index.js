@@ -1,17 +1,22 @@
-import React from 'react'
-import { useForm } from '../../context/store';
-import NavFootLayout from '../home/layouts/NavFootLayout';
+import React from "react";
+import NavFootLayout from "./layouts/NavFootLayout";
+import Hero from "./feauture/hero";
+import LiquidityProvisioning from "./feauture/liquidyprovisioning";
+import Explore from "./feauture/explore";
+import LongVolatilty from "./feauture/longvolatility";
+import EarnLiquidity from "./feauture/earnliquidity";
 
 
-export default function Quickswap() {
-      const { template } = useForm();
+export default function Quickwswap() {
   return (
-    <NavFootLayout>
-      <div className="flex h-screen w-full bg-blue-500 font-clash text-center px-[4%]  flex-col  justify-center items-center">
-        <h2>This is the first website template with title </h2>
-        <h4>Title: {template?.websiteTitle}</h4>
-        <h5>Description:{template?.description}</h5>
-      </div>
-    </NavFootLayout>
+    <div className="h-screen w-full sm:overflow-x-visible overflow-x-hidden  ">
+      <NavFootLayout>
+        <Hero />
+        <LiquidityProvisioning/>
+        <LongVolatilty/>
+        <EarnLiquidity/>
+        <Explore/>
+      </NavFootLayout>
+    </div>
   );
 }

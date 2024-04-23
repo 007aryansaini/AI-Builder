@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "../../../context/store";
-import bg from "../../home/assets/bg.jpg";
-import bgg from "../../home/assets/bgg.jpg";
+import bg from "../../home/assets/quickswap.png";
+import bgg from "../../home/assets/omega.png";
 import NavFootLayout from "../../home/layouts/NavFootLayout";
 import { Link } from "react-router-dom";
 export default function GeneratedPage() {
@@ -59,102 +59,6 @@ export default function GeneratedPage() {
                 </div>
               </Link>
 
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {template?.websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">
-                      {template?.description}
-                    </h5>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

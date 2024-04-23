@@ -139,9 +139,10 @@ export default function GenerateAIModal({ visible, onClose }) {
                   ></textarea>
                 </div>
                 <input
-                  className="bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
+                  className="curosr-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
                   value="Generate my site"
+                  onClick={handleSubmit}
                 />
                 <div className="flex justify-end">
                   <button
