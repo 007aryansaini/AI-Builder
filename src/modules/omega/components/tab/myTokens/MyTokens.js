@@ -10,14 +10,14 @@ export default function MyTokens() {
   const handleClose = () => setShowModal(false);
   return (
     <div>
-      <div className="bg-[#1C1C33] p-[2%] rounded-lg font-poppins flex flex-col space-y-6">
+      <div className="bg-[#1C1C33] sm:p-[2%] p-[4%] rounded-lg font-poppins flex flex-col space-y-6">
         <div className="bg-[#22223E] sm:p-[2%] p-[4%] rounded-lg flex sm:flex-row flex-col justify-between sm:items-center w-full">
           <div>
             <h5 className="font-semibold  text-xl">Token Manager</h5>
             <h6 className="text-[#9CA3AF] text-base">
               Create and manage your tokens.
             </h6>
-            <h6 className="text-sm">
+            <h6 className="text-sm sm:my-0 my-[1%]">
               <a>Start Tutorial</a>
             </h6>
           </div>
@@ -27,7 +27,7 @@ export default function MyTokens() {
           </div>
         </div>
 
-        <div className="bg-[#22223E]  py-[3%] px-[7%] rounded-lg flex sm:flex-row flex-col justify-between items-center w-full">
+        <div className="bg-[#22223E]  sm:py-[3%] py-[4%] px-[7%] rounded-lg flex sm:flex-row flex-col justify-between items-center w-full">
           <div className="flex flex-col space-y-2 items-center">
             <h4 className=" text-4xl">110,171</h4>
             <h5 className=" leading-6 text-gray-500 text-lg">
@@ -77,7 +77,7 @@ export default function MyTokens() {
               </div>
             </div>
           ) : (
-            <div className="flex flex-col items-center space-y-5 ">
+            <div className="flex flex-col items-center space-y-5 sm:p-0 p-[4%] ">
               <div className=" ">
                 <h5 className="font-semibold  text-lg text-center">
                   Token Manager
