@@ -15,6 +15,7 @@ const FormProvider = ({ children }) => {
   const handleInputChange = (event) => {
     setTemplate({
       ...template,
+      [event.target.name]: event.target.value,
     });
   };
 
