@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "../../../../../../context/store";
 import { useNavigate } from "react-router-dom";
 import bg from "../../../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
-import { response } from "../../../../../../ai/OpenAi";
+import ResponseContext from "../../../../../../context/AiContext";
+
 
 export default function GenerateAIModal({ visible, onClose }) {
   const navigate = useNavigate();
@@ -11,20 +12,20 @@ export default function GenerateAIModal({ visible, onClose }) {
     if (e.target.id === "container") onClose();
   };
 
-
   const { handleInputChange, template, setTemplate } = useForm();
+  const { fetchResponse } = useContext(ResponseContext);
 
   const handleSubmit = async (event) => {
-      event.preventDefault();
-    
-    await response(
+    event.preventDefault();
+
+    await fetchResponse(
       template.websiteTitle,
       template.description,
       100,
       "body,footer",
       template.purpose
     );
-  
+
     console.log(template);
     handleInputChange(event);
     navigate("/generated-page");

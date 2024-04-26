@@ -4,19 +4,29 @@ import bg from "../../home/assets/quickswap.png";
 import bgg from "../../home/assets/omega.png";
 import NavFootLayout from "../../home/layouts/NavFootLayout";
 import { Link } from "react-router-dom";
+import { useTemplate } from "../../../context/AiContext";
+
 export default function GeneratedPage() {
   const { template } = useForm();
+  const { responseState } = useTemplate();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, []);
+  const parsedContent = JSON.parse(responseState.content);
+
+  const websiteTitle = parsedContent.website_title;
+  const description = parsedContent.website_description;
+  console.log(websiteTitle);
   return (
     <NavFootLayout>
       {loading ? (
         <div className="h-screen flex justify-center items-center">
-          <h4 className="font-clash text-white sm:text-[40px] text-center ">Generating Your Site Please Wait.........</h4>
+          <h4 className="font-clash text-white sm:text-[40px] text-center ">
+            Generating Your Site Please Wait.........
+          </h4>
         </div>
       ) : (
         <div>
@@ -31,11 +41,9 @@ export default function GeneratedPage() {
                     />
                     <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
                       <h6 className="font-clash font-semibold text-lg">
-                        {template?.websiteTitle}
+                        {websiteTitle}
                       </h6>
-                      <h5 className="font-clash text-sm ">
-                        {template?.description}
-                      </h5>
+                      <h5 className="font-clash text-sm ">{description}</h5>
                     </div>
                   </div>
                 </div>
@@ -49,16 +57,15 @@ export default function GeneratedPage() {
                     />
                     <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
                       <h6 className="font-clash font-semibold text-lg">
-                        {template?.websiteTitle}
+                        {websiteTitle}
                       </h6>
                       <h5 className="font-clash text-sm ">
-                        {template?.description}
+                        {description}
                       </h5>
                     </div>
                   </div>
                 </div>
               </Link>
-
             </div>
           </div>
         </div>

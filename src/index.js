@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import FormProvider from "./context/store";
+import { ResponseProvider } from "./context/AiContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <FormProvider>
-      <App />
-    </FormProvider>
+    <ResponseProvider>
+      <FormProvider>
+        <App />
+      </FormProvider>
+    </ResponseProvider>
   </React.StrictMode>
 );
 
