@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "../../../../../../context/store";
 import { useNavigate } from "react-router-dom";
-import bg from "../../../../assets/bg.jpg"
+import bg from "../../../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
+import { response } from "../../../../../../ai/OpenAi";
 
 export default function GenerateAIModal({ visible, onClose }) {
   const navigate = useNavigate();
@@ -10,32 +11,32 @@ export default function GenerateAIModal({ visible, onClose }) {
     if (e.target.id === "container") onClose();
   };
 
-  const [formState, setFormState] = useState({
-    websiteTitle: "",
-    description: "",
-    purpose: "",
-  });
 
-  const { handleInputChange, template,setTemplate } = useForm();
+  const { handleInputChange, template, setTemplate } = useForm();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+      event.preventDefault();
+    
+    await response(
+      template.websiteTitle,
+      template.description,
+      100,
+      "body,footer",
+      template.purpose
+    );
+  
     console.log(template);
     handleInputChange(event);
     navigate("/generated-page");
-    
-
-   console.log(formState)
-   
   };
-   const handleReset = () => {
+  const handleReset = () => {
     setTemplate({
       websiteTitle: "",
       description: "",
       purpose: "",
     });
-  }
-  
+  };
+
   if (!visible) return null;
 
   return (
