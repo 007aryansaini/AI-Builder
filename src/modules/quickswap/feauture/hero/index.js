@@ -9,10 +9,25 @@ import {
   slideIn,
   navVariants,
 } from "../../utils/motion";
-import star from "../../assets/icons/Star 1.png"
+import star from "../../assets/icons/Star 1.png";
 import { useForm } from "../../../../context/store";
+import { useTemplate } from "../../../../context/AiContext";
 export default function Hero() {
-    const { template } = useForm();
+  const { responseState } = useTemplate();
+
+  const parsedContent = JSON.parse(responseState.content);
+
+
+
+  const websiteTitle = parsedContent.website_title;
+  const shortDescription = parsedContent.short_description;
+  const tagline = parsedContent.tagline;
+const aboutus= parsedContent.aboutus;
+const feautures = parsedContent.features;
+  const description = parsedContent.website_description;
+  const summary_description = description.split(/[.!?]/);
+  const web_description = summary_description[0];
+
   return (
     <motion.div
       variants={staggerContainer}
@@ -48,14 +63,20 @@ export default function Hero() {
               variants={fadeIn("down", "tween", 0.8, 1)}
               className="text-center text-[#FAFAFA] font-extrabold w-[700px] text-2xl sm:text-[64px] leading-[1.3]"
             >
-              {template?.websiteTitle}
+              {tagline}
             </motion.h1>
 
             <motion.p
               variants={fadeIn("up", "tween", 1, 1)}
-              className="text-[#FAFAFACC] w-[500px] sm:text-2xl text-lg  text-center py-10"
+              className="text-[#fafafa94] w-[700px] sm:text-2xl text-lg  text-center py-10"
             >
-              {template?.description}
+              {shortDescription}
+            </motion.p>
+            <motion.p
+              variants={fadeIn("up", "tween", 1, 1)}
+              className="text-[#fafafa94] w-[700px] sm:text-2xl text-lg  text-center py-10"
+            >
+              {feautures}
             </motion.p>
             <motion.div
               variants={fadeIn("up", "tween", 1, 1)}

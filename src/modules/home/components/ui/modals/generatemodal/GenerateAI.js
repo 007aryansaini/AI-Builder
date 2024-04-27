@@ -5,8 +5,8 @@ import bg from "../../../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
 import ResponseContext from "../../../../../../context/AiContext";
 
-
 export default function GenerateAIModal({ visible, onClose }) {
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const handleClose = (e) => {
     if (e.target.id === "container") onClose();
@@ -17,18 +17,19 @@ export default function GenerateAIModal({ visible, onClose }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setIsLoading(true);
     await fetchResponse(
       template.websiteTitle,
       template.description,
       100,
-      "body,footer",
-      template.purpose
+      "body,footer,aboutus,mission,vision,feautures",
+
     );
 
     console.log(template);
     handleInputChange(event);
     navigate("/generated-page");
+    setIsLoading(false);
   };
   const handleReset = () => {
     setTemplate({
@@ -140,11 +141,19 @@ export default function GenerateAIModal({ visible, onClose }) {
                     required
                   ></textarea>
                 </div>
+                {isLoading && (
+                  <div className="fixed inset-0 z-50 bg-black  flex justify-center items-center">
+                    <h4 className="font-clash text-white sm:text-[40px] text-center">
+                      Generating Your Site Please Wait.........
+                    </h4>
+                  </div>
+                )}
                 <input
                   className="curosr-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
-                  value="Generate my site"
+                  value={isLoading ? "Generating..." : "Generate my site"} // Render different text based on loading state
                   onClick={handleSubmit}
+                  disabled={isLoading}
                 />
                 <div className="flex justify-end">
                   <button
