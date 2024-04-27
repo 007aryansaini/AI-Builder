@@ -15,7 +15,7 @@ export const ResponseProvider = ({ children }) => {
     try {
       const prompt = `
     Generate content for my website with the title ${title} and description ${description}. I'd like to generate more parts of the website .
-    Generate parts ${part1} with word limit ${limit}  
+    Generate title,description and  parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below?  
 
     {
       "title": "Title of an Idea of that ${title} (short and catchy)",
@@ -27,6 +27,28 @@ export const ResponseProvider = ({ children }) => {
           "mission":"mission of the  website (well described)",
           "vision":"vision of the  website (well described)",
           "feautures":"feautures of the  website (well described)",
+          "tagline":"tagline should be at least and equal to 6 words only (catchy)",
+          "benefits":{
+            "benefit1":{
+            "subtitle":"benefit1 should have a subtitle with two words",
+            "title":"benefit1 should have a title with 3 words",
+            "paragraph":"Benefit1 of the site (two paragraph sentence and space between the paragraph)",
+            },
+            "benefit2":{
+            "subtitle":"benefit2 should have a subtitle with two words",
+            "title":"benefit2 should have a title with 3 words",
+            "paragraph":"Benefit2 of the site (two paragraph sentence and space between the paragraph)",
+            },
+            "benefit3":{
+            "subtitle":"benefit3 should have a subtitle with two words",
+            "title":"benefit3 should have a title with 3 words",
+            "paragraph":"Benefit3 of the site (two paragraph sentence and space between the paragraph)",
+            },
+          },
+          "explore":{
+            "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
+            "paragraph":"explore title should talk about why we should explore this app  should be at least and equal to 12 words only (catchy)"
+          }
 
       }
     }
@@ -41,7 +63,7 @@ export const ResponseProvider = ({ children }) => {
           {
             role: "system",
             content:
-              "You will brainstrom and generate the idea that the user wants.",
+              "You are a helpful assistant that corrects grammatical errors in text.",
           },
         ],
       });

@@ -9,7 +9,7 @@ import EarnLiquidity from "./feauture/earnliquidity";
 
 export default function Quickwswap() {
   return (
-    <div className="h-screen w-full sm:overflow-x-visible overflow-x-hidden  ">
+    <div className="h-screen w-full sm:overflow-x-visible overflow-x-hidden  font-cabinet">
       <NavFootLayout>
         <Hero />
         <LiquidityProvisioning/>

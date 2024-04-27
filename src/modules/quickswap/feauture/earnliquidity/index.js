@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
 import { TypingText } from "../../utils/customtext";
 import { staggerContainer, fadeIn, planetVariants } from "../../utils/motion";
 import { Button } from "../../components/ui/buttons/Button";
+import { useTemplate } from "../../../../context/AiContext";
 export default function EarnLiquidity() {
+   const { responseState } = useTemplate();
+
+   const parsedContent = JSON.parse(responseState.content);
+
+   const benefit3 = parsedContent.data.benefits.benefit3;
   return (
     <motion.div
       variants={staggerContainer}
@@ -22,23 +28,14 @@ export default function EarnLiquidity() {
               className="flex  flex-col items-start text-[#FAFAFACC] flex-1 gap-4"
             >
               <div className=" text-2xl ">
-                <TypingText title="Multiple AMMs" />
+                <TypingText title={benefit3.subtitle} />
               </div>
-              <h2 className="sm:text-[48px] text-2xl font-extrabold leading-[1.1]">
-                Earn by Providing <br className="md:flex hidden" /> Liquidity
+              <h2 className="sm:text-[48px] w-[500px] text-2xl font-extrabold leading-[1.1]">
+                {benefit3.title}
               </h2>
 
-              <p className="sm:text-lg text-base">
-                Earn a higher yield by providing liquidity through GammaSwap.
-                <br className="md:flex hidden" />
-                Think of our wrapped pools like wrapped tokens.
-              </p>
-              <p className="sm:text-lg text-base mt-6 mb-3">
-                The GammaSwap protocol will directly deposit liquidity into{" "}
-                <br className="sm:flex hidden" />
-                the underlying AMM and provide an LP token to the depositor
-                <br className="md:flex hidden" />
-                representing the position.
+              <p className="sm:text-lg text-base w-[500px] mt-6 mb-3">
+                {benefit3.paragraph}
               </p>
               <Button variant="secondary">Learn More </Button>
             </motion.div>

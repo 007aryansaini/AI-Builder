@@ -6,7 +6,13 @@ import telegram from "../../assets/icons/discord.png";
 import discord from "../../assets/icons/discord.png";
 import { motion } from "framer-motion";
 import { footerVariants } from "../../utils/motion";
+import { useTemplate } from "../../../../context/AiContext";
 export default function Footer() {
+    const { responseState } = useTemplate();
+
+    const parsedContent = JSON.parse(responseState.content);
+
+    const tagline = parsedContent.data.tagline;
   return (
     <motion.footer
       variants={footerVariants}
@@ -22,7 +28,7 @@ export default function Footer() {
             <div className="">
               <Logo />
               <h5 className="sm:mt-6 sm:my-0 my-10 text-[#808080] sm:text-lg text-base font-bold">
-                Oracle Free Perpetual Volatility Trading
+                {tagline}
               </h5>
 
               <div className="sm:flex flex-col hidden mt-10">
@@ -62,7 +68,9 @@ export default function Footer() {
               </div>
             </div>
             <div className="sm:hidden flex flex-col justify-center w-full  mt-10">
-              <h4 className="sm:text-[30px] text-[26px] text-center text-[#fff] font-bold">Community</h4>
+              <h4 className="sm:text-[30px] text-[26px] text-center text-[#fff] font-bold">
+                Community
+              </h4>
               <div className="flex justify-center items-center sm:space-x-12 space-x-4 mt-6">
                 <img
                   className="sm:w-[34px] w-[30px]"
@@ -89,7 +97,7 @@ export default function Footer() {
           </div>
           <div className="flex sm:pb-[5%] pb-[26%] justify-center sm:justify-end">
             <h5 className="text-[#808080] text-lg font-bold">
-              © 2023 GammaSwap Labs LLC.
+              © 2024 GammaSwap Labs LLC.
             </h5>
           </div>
         </div>

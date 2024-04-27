@@ -14,10 +14,7 @@ export default function GeneratedPage() {
       setLoading(false);
     }, 3000);
   }, []);
-  const parsedContent = JSON.parse(responseState.content);
 
-  const websiteTitle = parsedContent.website_title;
-  const description = parsedContent.website_description;
 
   return (
     <NavFootLayout>
@@ -33,29 +30,14 @@ export default function GeneratedPage() {
                   />
                   <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
                     <h6 className="font-clash font-semibold text-lg">
-                      {websiteTitle}
+                      
                     </h6>
-                    <h5 className="font-clash text-sm ">{description}</h5>
+                    <h5 className="font-clash text-sm "></h5>
                   </div>
                 </div>
               </div>
             </Link>
-            <Link to="/generated-template-2">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bgg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg">
-                      {websiteTitle}
-                    </h6>
-                    <h5 className="font-clash text-sm ">{description}</h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
+          
           </div>
         </div>
       </div>

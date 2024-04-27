@@ -19,14 +19,9 @@ export default function Hero() {
 
 
 
-  const websiteTitle = parsedContent.website_title;
-  const shortDescription = parsedContent.short_description;
-  const tagline = parsedContent.tagline;
-const aboutus= parsedContent.aboutus;
-const feautures = parsedContent.features;
-  const description = parsedContent.website_description;
-  const summary_description = description.split(/[.!?]/);
-  const web_description = summary_description[0];
+  const websiteTitle = parsedContent.data.tagline;
+  const description = parsedContent.description
+  
 
   return (
     <motion.div
@@ -63,21 +58,16 @@ const feautures = parsedContent.features;
               variants={fadeIn("down", "tween", 0.8, 1)}
               className="text-center text-[#FAFAFA] font-extrabold w-[700px] text-2xl sm:text-[64px] leading-[1.3]"
             >
-              {tagline}
+              {websiteTitle}
             </motion.h1>
 
             <motion.p
               variants={fadeIn("up", "tween", 1, 1)}
               className="text-[#fafafa94] w-[700px] sm:text-2xl text-lg  text-center py-10"
             >
-              {shortDescription}
+              {description}
             </motion.p>
-            <motion.p
-              variants={fadeIn("up", "tween", 1, 1)}
-              className="text-[#fafafa94] w-[700px] sm:text-2xl text-lg  text-center py-10"
-            >
-              {feautures}
-            </motion.p>
+        
             <motion.div
               variants={fadeIn("up", "tween", 1, 1)}
               className="flex sm:justify-center justify-between  sm:space-x-12 px-[10%]"

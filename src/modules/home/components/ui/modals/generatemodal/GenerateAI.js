@@ -22,8 +22,7 @@ export default function GenerateAIModal({ visible, onClose }) {
       template.websiteTitle,
       template.description,
       100,
-      "body,footer,aboutus,mission,vision,feautures",
-
+      "body,footer,aboutus,mission,vision,feautures,tagline,benefit1,benefit2,benefit3"
     );
 
     console.log(template);

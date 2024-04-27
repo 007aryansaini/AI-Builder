@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         clash: ["Clash Display", "sans-serif"],
         circular: ["Circular Std", "sans-serif"],
+        cabinet: ["Cabinet Grotesk", "sans-serif"],
       },
     },
   },

@@ -7,7 +7,13 @@ import rocket from "../../assets/3dicons.png";
 import dollar from "../../assets/dollar.png";
 import coins from "../../assets/coins.png";
 import { Button } from "../../components/ui/buttons/Button";
+import { useTemplate } from "../../../../context/AiContext";
 export default function LongVolatilty() {
+   const { responseState } = useTemplate();
+
+   const parsedContent = JSON.parse(responseState.content);
+
+   const benefit2 = parsedContent.data.benefits.benefit2;
   return (
     <motion.div
       variants={staggerContainer}
@@ -23,10 +29,8 @@ export default function LongVolatilty() {
           <div className=" col-span-1 sm:mt-0 ">
             <motion.div></motion.div>
             <motion.div variants={planetVariants("left")} className="relative ">
-             
-                
-                  <motion.img
-                   animate={{
+              <motion.img
+                animate={{
                   y: "-20%",
                 }}
                 transition={{
@@ -34,11 +38,10 @@ export default function LongVolatilty() {
                   repeat: Infinity,
                   repeatType: "mirror",
                 }}
-                    src={rocket}
-                    alt="dollar"
-                    className="absolute -top-[30%] right-[10%]"
-                  />
-                
+                src={rocket}
+                alt="dollar"
+                className="absolute -top-[30%] right-[10%]"
+              />
 
               <motion.img
                 animate={{
@@ -69,27 +72,18 @@ export default function LongVolatilty() {
           </div>
           <div className="col-span-1 md:order-last order-first">
             <motion.div
-              variants={fadeIn("right", "tween", 0.2, 1)}
+              variants={fadeIn("left", "tween", 0.2, 1)}
               className="flex  flex-col items-start text-[#FAFAFACC] flex-1 gap-4"
             >
               <div className=" text-2xl ">
-                <TypingText title="Perpetuals" />
+                <TypingText title={benefit2.subtitle} />
               </div>
-              <h2 className="sm:text-[48px] text-2xl font-extrabold leading-[1.1]">
-                Long Volatility
+              <h2 className="sm:text-[48px] w-[500px] text-2xl font-extrabold leading-[1.1]">
+                {benefit2.title}
               </h2>
 
-              <p className="sm:text-lg text-base">
-                Earn a higher yield by providing liquidity through GammaSwap.
-                <br className="md:flex hidden" />
-                Think of our wrapped pools like wrapped tokens.
-              </p>
-              <p className="sm:text-lg text-base mt-6 mb-3">
-                The GammaSwap protocol will directly deposit liquidity into{" "}
-                <br className="md:flex hidden" />
-                the underlying AMM and provide an LP token to the depositor
-                <br className="md:flex hidden" />
-                representing the position.
+              <p className="sm:text-lg text-base w-[500px] mt-6 mb-3">
+                {benefit2.paragraph}
               </p>
               <Button variant="secondary">Learn More </Button>
             </motion.div>
