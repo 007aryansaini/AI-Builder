@@ -29,7 +29,7 @@ export default function Navbar() {
                 Sign Up
               </button>
             </div>
-            <div className="sm:hidden flex bg-black dark:bg-white text-white dark:text-black p-2 rounded-[8px]">
+            <div className="sm:hidden flex bg-white text-black p-2 rounded-[8px]">
               <HiIcons.HiMenuAlt4 onClick={() => setNavbar(!navbar)} />
             </div>
           </div>
