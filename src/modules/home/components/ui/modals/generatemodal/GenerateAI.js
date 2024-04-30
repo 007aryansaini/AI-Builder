@@ -18,6 +18,11 @@ export default function GenerateAIModal({ visible, onClose }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+     if (!template.websiteTitle || !template.description || !template.purpose) {
+       setIsLoading(false);
+       return;
+     }
+
     await fetchResponse(
       template.websiteTitle,
       template.description,
@@ -148,22 +153,13 @@ export default function GenerateAIModal({ visible, onClose }) {
                   </div>
                 )}
                 <input
-                  className="curosr-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
+                  className="cursor-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
                   value={isLoading ? "Generating..." : "Generate my site"} // Render different text based on loading state
                   onClick={handleSubmit}
                   disabled={isLoading}
                 />
-                <div className="flex justify-end">
-                  <button
-                    className="bg-white flex items-center justify-center gap-3 w-[100px] h-[44px] text-black rounded-[6px] font-medium "
-                    type="button"
-                    onClick={handleReset}
-                  >
-                    <FiRefreshCcw />
-                    Reset
-                  </button>
-                </div>
+                
               </form>
             </div>
           </div>

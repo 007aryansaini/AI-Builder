@@ -14,11 +14,7 @@ import { useForm } from "../../../../context/store";
 import { useTemplate } from "../../../../context/AiContext";
 export default function Hero() {
   const { responseState } = useTemplate();
-
   const parsedContent = JSON.parse(responseState.content);
-
-
-
   const websiteTitle = parsedContent.data.tagline;
   const description = parsedContent.description
   
