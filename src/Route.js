@@ -6,6 +6,9 @@ import Quickwswap from "./modules/quickswap";
 import Omega from "./modules/omega";
 import Template1 from "./modules/template1";
 import Template3 from "./modules/template2";
+import PrivateRoutes from "./utils/PrivateRoutes";
+
+
 
 function Routess() {
   return (
@@ -13,11 +16,14 @@ function Routess() {
       <Router>
         <Routes>
           <Route path="/" exact element={<Home />} />
-          <Route path="/generated-page" element={<GeneratedPage />} />
-          <Route path="/generated-template-1" element={<Quickwswap />} />
-          <Route path="/generated-template-2" element={<Omega />} />
-          <Route path="/generated-template-3" element={<Template1 />} />
-          <Route path="/generated-template-4" element={<Template3 />} />
+
+          <Route element={<PrivateRoutes />}>
+            <Route path="/generated-page" element={<GeneratedPage />} />
+            <Route path="/generated-template-1" element={<Quickwswap />} />
+            <Route path="/generated-template-2" element={<Omega />} />
+            <Route path="/generated-template-3" element={<Template1 />} />
+            <Route path="/generated-template-4" element={<Template3 />} />
+          </Route>
         </Routes>
       </Router>
     </div>

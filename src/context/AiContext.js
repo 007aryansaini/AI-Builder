@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import OpenAI from "openai";
+import { Route, useNavigate } from "react-router-dom";
 
 const openAi = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -89,3 +90,4 @@ export const ResponseProvider = ({ children }) => {
 export default ResponseContext;
 
 export const useTemplate = () => useContext(ResponseContext);
+
