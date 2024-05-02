@@ -86,7 +86,7 @@ export default function GenerateAIModal({ visible, onClose }) {
           <input type="submit" value="Submit" />
         </form>
       </div> */}
-      <div className="bg-black text-white w-[90%] h-[80vh]">
+      <div className="bg-black text-white w-[90%] h-[100vh]">
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
