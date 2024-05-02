@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect, useContext } from "react";
 import OpenAI from "openai";
 
 const openAi = new OpenAI({
-  apiKey: "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",
+  apiKey: process.env.REACT_APP_OPENAI_API_KEY,
   dangerouslyAllowBrowser: true,
 });
 
