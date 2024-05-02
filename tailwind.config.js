@@ -9,6 +9,7 @@ module.exports = {
         cabinet: ["Cabinet Grotesk", "sans-serif"],
         orbitron: ["Orbitron", "sans-serif"],
         sansita: ["Sansita Swashed", "system-ui"],
+        lexend: ["Lexend", "sans-serif"],
       },
     },
   },
