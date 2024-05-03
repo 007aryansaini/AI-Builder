@@ -19,7 +19,7 @@ export default function Hero() {
                 <h3 className="text-[64px]  font-bold font-lexend geo leading-[68px]">
                  {tagline}
                 </h3>
-                <p className="text-[34px] font-lexend leading-[40px] my-[3%] text-white/70 ">
+                <p className="text-[34px] w-[700px] font-lexend leading-[40px] my-[3%] text-white/70 ">
                   {description}
                 </p>
                 <button className=" mt-[2%] text-[34px] font-lexend font-medium text-white  px-6 py-[8px] border-[4px] border-[#558F26] bg-[#020204]">

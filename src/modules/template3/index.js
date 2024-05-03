@@ -2,12 +2,14 @@ import React from 'react'
 import NavFootLayout from './layouts';
 import Hero from './feautures/hero';
 import bgg from "../template3/assets/bg.png";
+import Explore from './feautures/explore';
 
 function Template4() {
   return (
     <div style={style.bg}>
       <NavFootLayout>
         <Hero />
+       <Explore/>
       </NavFootLayout>
     </div>
   );
