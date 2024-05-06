@@ -9,6 +9,8 @@ import Template3 from "./modules/template2";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import Template4 from "./modules/template3";
 import Cryzpto from "./modules/cryzpto";
+import Desktop from "./modules/amplichat/Desktop";
+import Template7 from "./modules/templat7";
 
 
 
@@ -19,6 +21,8 @@ function Routess() {
         <Routes>
           <Route path="/" exact element={<Home />} />
 
+          <Route path="/generated-template-6" element={<Desktop />} />
+          <Route path="/generated-template-7" element={<Template7 />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/generated-template-4" element={<Template4 />} />
             <Route path="/generated-template-5" element={<Cryzpto />} />

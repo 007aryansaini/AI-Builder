@@ -49,7 +49,8 @@ export const ResponseProvider = ({ children }) => {
           "explore":{
             "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
             "paragraph":"explore title should talk about why we should explore this app  should be at least and equal to 12 words only (catchy)"
-          }
+          },
+          "short_desc":"short description should be a short description talking about the website"
 
       }
     }
