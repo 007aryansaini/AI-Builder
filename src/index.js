@@ -5,13 +5,16 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import FormProvider from "./context/store";
 import { ResponseProvider } from "./context/AiContext";
+import { AiProvider } from "./context/Generated";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ResponseProvider>
       <FormProvider>
-        <App />
+        <AiProvider>
+          <App />
+        </AiProvider>
       </FormProvider>
     </ResponseProvider>
   </React.StrictMode>

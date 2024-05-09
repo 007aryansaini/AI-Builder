@@ -1,102 +1,63 @@
 import React, { useState, useEffect } from "react";
-import { useForm } from "../../../context/store";
-import bg from "../../home/assets/quickswap.png";
-import temp1 from "../../home/assets/temp1.png";
-import temp3 from "../../home/assets/lostworld.png";
-import temp5 from "../../home/assets/temp5.png";
-import temp7 from "../../home/assets/amp.png";
-import NavFootLayout from "../../home/layouts/NavFootLayout";
-import { Link } from "react-router-dom";
-import { useTemplate } from "../../../context/AiContext";
+import { useAi } from "../../../context/Generated";
+
+
 
 export default function GeneratedPage() {
-  const { responseState } = useTemplate();
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+const { templates } = useAi();
+const [shownTemplateIndices, setShownTemplateIndices] = useState([]);
+const [selectedTemplateIndex, setSelectedTemplateIndex] = useState(null);
 
+// Shuffle the indices when all templates have been shown
+useEffect(() => {
+  if (shownTemplateIndices.length === templates.length) {
+    setShownTemplateIndices([]);
+  }
+}, [shownTemplateIndices, templates]);
 
+const showNextTemplate = () => {
+  let availableIndices = templates.map((_, index) => index);
+  availableIndices = availableIndices.filter(
+    (index) => !shownTemplateIndices.includes(index)
+  );
+
+  if (availableIndices.length === 0) {
+    setShownTemplateIndices([]);
+    availableIndices = templates.map((_, index) => index);
+  }
+
+  const randomIndex =
+    availableIndices[Math.floor(Math.random() * availableIndices.length)];
+  setSelectedTemplateIndex(randomIndex);
+  setShownTemplateIndices([...shownTemplateIndices, randomIndex]);
+};
+
+const showPreviousTemplate = () => {
+  if (shownTemplateIndices.length === 0) {
+    return;
+  }
+
+  const lastShownIndex = shownTemplateIndices[shownTemplateIndices.length - 1];
+  setShownTemplateIndices(shownTemplateIndices.slice(0, -1));
+  setSelectedTemplateIndex(lastShownIndex);
+};
+
+useEffect(() => {
+  showNextTemplate();
+}, []); // Show the first template when component mounts
+
+if (selectedTemplateIndex === null) {
+  return <div>No templates to show</div>;
+}
+
+const selectedTemplate = templates[selectedTemplateIndex];
+const { tagline, description } = selectedTemplate.content;
   return (
-    <NavFootLayout>
-      <div>
-        <div className="text-white max-w-[1440px] mx-auto">
-          <div className="grid sm:grid-cols-4 gap-6 mt-[3%] px-[5%] pt-[12vh]">
-            <Link to="/generated-template-4">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={temp3}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg"></h6>
-                    <h5 className="font-clash text-sm "></h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/generated-template-1">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={bg}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg"></h6>
-                    <h5 className="font-clash text-sm "></h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/generated-template-3">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={temp1}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg"></h6>
-                    <h5 className="font-clash text-sm "></h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/generated-template-5">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={temp5}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg"></h6>
-                    <h5 className="font-clash text-sm "></h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
-            <Link to="/generated-template-6">
-              <div className="h-[450px] cursor-pointer">
-                <div className="w-full h-[350px] ">
-                  <img
-                    className="w-full h-full object-cover hover:blur-[2px]"
-                    src={temp7}
-                  />
-                  <div className="w-full flex flex-col justify-center items-center h-[100px] bg-[#161616]">
-                    <h6 className="font-clash font-semibold text-lg"></h6>
-                    <h5 className="font-clash text-sm "></h5>
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </NavFootLayout>
+    <div>
+    
+      <div>{selectedTemplate.info}</div>
+    
+      
+    </div>
   );
 }

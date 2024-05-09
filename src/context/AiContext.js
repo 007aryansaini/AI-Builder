@@ -54,6 +54,7 @@ export const ResponseProvider = ({ children }) => {
 
       }
     }
+     Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
   `;
       const responseGPT = await openAi.chat.completions.create({
         model: "gpt-3.5-turbo",
