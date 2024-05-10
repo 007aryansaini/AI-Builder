@@ -8,8 +8,8 @@ export default function FAQ() {
     ? JSON.parse(responseState.content)
     : null;
   const faqs = parsedContent?.data?.faq;
-    
-    const short_desc = parsedContent.data.short_desc;
+
+  const short_desc = parsedContent.data.short_desc;
   return (
     <div className="bg-[#000000] w-full font-poppins text-white mt-[6%] px-[5%] ">
       <div className="max-w-[1440px] mx-auto">
