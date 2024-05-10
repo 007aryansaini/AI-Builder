@@ -20,6 +20,7 @@ export const ResponseProvider = ({ children }) => {
 
     {
       "title": "Title of an Idea of that ${title} (short and catchy)",
+      do not change the website inputed title
       "description": "Description of the  ${description} (well described)",
       "data":{
           "body":"Body of the website  (well described)",
