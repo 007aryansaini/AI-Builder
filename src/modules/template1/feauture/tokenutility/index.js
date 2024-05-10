@@ -37,9 +37,7 @@ export default function TokenUtility() {
                     <GoHubot />
                   </div>
                   <div>
-                    <h4 className="font-clash text-lg font-semibold">
-                      {testimonial.subtitle}
-                    </h4>
+                 
                     <p className="font-clash w-[300px] text-sm mt-[4%]">
                       {testimonial.title}
                     </p>
