@@ -19,14 +19,7 @@ export default function TokenUtility() {
         </div>
         <div className="grid grid-cols-3  mt-[10%]">
           <div className=" col-span-1 w-full h-[120px] py-[4%] px-[6%] rounded-[12px] border border-[#343534] bg-[#1E1E1E]">
-            <div className="flex items-start gap-4">
-              <div className="bg-[#FA0D14] rounded-[12px] p-3 w-[40px] h-[40px] text-[20px] flex justify-center items-center">
-                <GoHubot />
-              </div>
-              <div>
-               
-              </div>
-            </div>
+           
           </div>
           <div className=" col-span-2 w-full ">
             <img src={chatbot} alt="chatbot" />
