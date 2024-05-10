@@ -8,7 +8,7 @@ export default function Hero() {
    const { responseState } = useTemplate();
    const parsedContent = JSON.parse(responseState.content);
    const tagline = parsedContent.data.tagline;
-   const description = parsedContent.data.descriptions;
+   const descriptions = parsedContent.data.descriptions;
   return (
     <div>
       <div className="bg-[#000000] w-full font-poppins px-[5%] ">
@@ -18,7 +18,7 @@ export default function Hero() {
               <h2 className="text-center font-clash font-bold text-[40px] w-[550px] leading-[45px]">
                 {tagline}
               </h2>
-              <p className="font-clash text-center w-[500px]">{description}</p>
+              <p className="font-clash text-center w-[500px]">{descriptions}</p>
             </div>
           </div>
           <Slider />

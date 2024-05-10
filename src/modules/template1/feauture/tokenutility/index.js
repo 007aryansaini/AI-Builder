@@ -15,7 +15,7 @@ export default function TokenUtility() {
           <h2 className="text-[90px] font-clash font-semibold text-center">
             Testimonial Reviews
           </h2>
-          <p className="text-center font-clash w-[800px] ">fffffff</p>
+          <p className="text-center font-clash w-[800px] "></p>
         </div>
         <div className="grid grid-cols-3  mt-[10%]">
           <div className=" col-span-1 w-full h-[120px] py-[4%] px-[6%] rounded-[12px] border border-[#343534] bg-[#1E1E1E]">
@@ -28,7 +28,7 @@ export default function TokenUtility() {
                   Lending Market Listing
                 </h4>
                 <p className="font-clash w-[300px] text-sm mt-[4%]">
-                  {/* {testimonial.review1.title} */}
+                  {/* {testimonials.title3} */}
                 </p>
               </div>
             </div>
@@ -50,7 +50,7 @@ export default function TokenUtility() {
                   </div>
                   <div>
                     <h4 className="font-clash text-lg font-semibold">
-                      Lending Market Listing
+                      {testimonial.ssubtitle}
                     </h4>
                     <p className="font-clash w-[300px] text-sm mt-[4%]">
                       {testimonial.title}

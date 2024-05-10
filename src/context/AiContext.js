@@ -14,7 +14,7 @@ export const ResponseProvider = ({ children }) => {
 
   const fetchResponse = async (title, description, limit, part1, purpose) => {
     try {
- const prompt = `
+      const prompt = `
 Generate content for my website with the title ${title} and description ${description} and the ${purpose}. I'd like to generate more parts of the website .
 Generate title,description and  parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below?  
 
@@ -85,13 +85,15 @@ Generate title,description and  parts ${part1} with word limit ${limit} for this
         {"title":""},
         {"title":""}
       ],
-      "testimonial":[
-        {"title":"short testimonial review(12 words only)"},
-        {"title":"short testimonial review(12 words only)"},
-  
-      ],
-            "short_review":"short testimonial description",
-      {"title":"short testimonial review(12 words only)"},
+    "testimonial":[
+    {"title":"short testimonial review(12 words only)",
+     "subtitle":"short testimonial subtitle header(2 words only)"
+    },
+    {"title":"short testimonial review(12 words only)",
+     "subtitle":"short testimonial subtitle header(2 words only)"
+    }
+],
+
       "explore":{
         "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
         "paragraph":"explore title should talk about why we should explore this app  should be at least and equal to 12 words only (catchy)"
