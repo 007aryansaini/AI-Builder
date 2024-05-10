@@ -10,14 +10,13 @@ import {
   navVariants,
 } from "../../utils/motion";
 import star from "../../assets/icons/Star 1.png";
-import { useForm } from "../../../../context/store";
+
 import { useTemplate } from "../../../../context/AiContext";
 export default function Hero() {
-  const { responseState } = useTemplate();
-  const parsedContent = JSON.parse(responseState.content);
-  const websiteTitle = parsedContent.data.tagline;
-  const description = parsedContent.description
-  
+ const { responseState } = useTemplate();
+ const parsedContent = JSON.parse(responseState.content);
+ const tagline = parsedContent.data.tagline;
+ const description = parsedContent.description;
 
   return (
     <motion.div
@@ -54,7 +53,7 @@ export default function Hero() {
               variants={fadeIn("down", "tween", 0.8, 1)}
               className="text-center text-[#FAFAFA] font-extrabold w-[700px] text-2xl sm:text-[64px] leading-[1.3]"
             >
-              {websiteTitle}
+              {tagline}
             </motion.h1>
 
             <motion.p
@@ -63,7 +62,7 @@ export default function Hero() {
             >
               {description}
             </motion.p>
-        
+
             <motion.div
               variants={fadeIn("up", "tween", 1, 1)}
               className="flex sm:justify-center justify-between  sm:space-x-12 px-[10%]"

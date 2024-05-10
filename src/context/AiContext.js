@@ -20,7 +20,6 @@ export const ResponseProvider = ({ children }) => {
 
     {
       "title": "Title of an Idea of that ${title} (short and catchy)",
-      do not change the website inputed title
       "description": "Description of the  ${description} (well described)",
       "data":{
           "body":"Body of the website  (well described)",
@@ -85,11 +84,13 @@ export const ResponseProvider = ({ children }) => {
           "explore":{
             "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
             "paragraph":"explore title should talk about why we should explore this app  should be at least and equal to 12 words only (catchy)"
+             Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
           },
           "short_desc":"short description should be a short description talking about the website"
 
       }
     }
+    don't add any key to any of the response just provide just response
      Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
   `;
       const responseGPT = await openAi.chat.completions.create({

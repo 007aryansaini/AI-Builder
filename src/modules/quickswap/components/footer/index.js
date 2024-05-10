@@ -7,9 +7,10 @@ import discord from "../../assets/icons/discord.png";
 import { motion } from "framer-motion";
 import { footerVariants } from "../../utils/motion";
 import { useTemplate } from "../../../../context/AiContext";
+import { useForm } from "../../../../context/store";
 export default function Footer() {
     const { responseState } = useTemplate();
-
+const {template} = useForm();
     const parsedContent = JSON.parse(responseState.content);
 
     const tagline = parsedContent.data.tagline;
@@ -26,7 +27,7 @@ export default function Footer() {
         <div className="sm:px-[4%] px-[6%]  ">
           <div className="py-16 border-t-[1px] border-[#5C5959] flex sm:flex-row flex-col justify-between items-start  ">
             <div className="">
-              <Logo />
+            <h4 className="text-white text-4xl uppercase font-bold">{template.websiteTitle}</h4>
               <h5 className="sm:mt-6 sm:my-0 my-10 text-[#808080] sm:text-lg text-base font-bold">
                 {tagline}
               </h5>
