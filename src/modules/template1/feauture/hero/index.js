@@ -4,7 +4,6 @@ import Slider from "../slider";
 import { useTemplate } from "../../../../context/AiContext";
 
 
-
 export default function Hero() {
    const { responseState } = useTemplate();
    const parsedContent = JSON.parse(responseState.content);
@@ -12,11 +11,11 @@ export default function Hero() {
    const description = parsedContent.description;
   return (
     <div>
-      <div className="bg-[#000000] w-full font-poppins ">
+      <div className="bg-[#000000] w-full font-poppins px-[5%] ">
         <div className="max-w-[1440px] mx-auto">
           <div style={style.bg} className="text-white">
             <div className="w-full h-[55vh] flex flex-col gap-3 justify-center items-center">
-              <h2 className="text-center w-[550px] font-clash font-bold text-[40px] leading-[45px]">
+              <h2 className="text-center font-clash font-bold text-[40px] w-[550px] leading-[45px]">
                 {tagline}
               </h2>
               <p className="font-clash text-center w-[500px]">{description}</p>

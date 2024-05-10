@@ -33,18 +33,53 @@ export const ResponseProvider = ({ children }) => {
             "benefit1":{
             "subtitle":"benefit1 should have a subtitle with two words",
             "title":"benefit1 should have a title with 3 words",
-            "paragraph":"Benefit1 of the site (two paragraph sentence and space between the paragraph)",
+            "paragraph":"Benefit1 of the site (one paragraph sentence and space between the paragraph)",
             },
             "benefit2":{
             "subtitle":"benefit2 should have a subtitle with two words",
             "title":"benefit2 should have a title with 3 words",
-            "paragraph":"Benefit2 of the site (two paragraph sentence and space between the paragraph)",
+            "paragraph":"Benefit2 of the site (one paragraph sentence and space between the paragraph)",
             },
             "benefit3":{
             "subtitle":"benefit3 should have a subtitle with two words",
             "title":"benefit3 should have a title with 3 words",
-            "paragraph":"Benefit3 of the site (two paragraph sentence and space between the paragraph)",
+            "paragraph":"Benefit3 of the site (one paragraph sentence and space between the paragraph)",
             },
+            "benefit4":{
+            "subtitle":"benefit4 should have a subtitle with two words",
+            "title":"benefit4 should have a title with 3 words",
+            "paragraph":"Benefit4 of the site (one paragraph sentence and space between the paragraph)",
+            },
+            dont add the benefit and the number in the subtitle response,
+            Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
+          },
+           "faq":{
+            {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+            {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+             {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+             {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+             {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+             {
+            "question":"faq should be a question asked",
+            "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)",
+            },
+            dont add the benefit and the number in the subtitle response,
+            Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
           },
           "explore":{
             "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
