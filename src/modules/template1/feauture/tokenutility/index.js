@@ -18,7 +18,7 @@ export default function TokenUtility() {
           <p className="text-center font-clash w-[800px] "></p>
         </div>
         <div className="grid grid-cols-3  mt-[10%]">
-          <div className=" col-span-1 w-full h-[120px] py-[4%] px-[6%] rounded-[12px] border border-[#343534] bg-[#1E1E1E]">
+          <div className=" col-span-1 w-full ">
            
           </div>
           <div className=" col-span-2 w-full ">
