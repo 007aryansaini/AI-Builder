@@ -12,15 +12,15 @@ const ResponseContext = createContext();
 export const ResponseProvider = ({ children }) => {
   const [responseState, setResponseState] = useState(null);
 
-  const fetchResponse = async (title, description, limit, part1) => {
+  const fetchResponse = async (title, description, limit, part1, purpose) => {
     try {
       const prompt = `
-    Generate content for my website with the title ${title} and description ${description}. I'd like to generate more parts of the website .
+    Generate content for my website with the title ${title} and description ${description} and the ${purpose}. I'd like to generate more parts of the website .
     Generate title,description and  parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below?  
 
     {
       "title": "Title of an Idea of that ${title} (short and catchy)",
-      "description": "Description of the  ${description} (well described)",
+      
       "data":{
           "body":"Body of the website  (well described)",
           "footer":"footer of the  website (well described)",
@@ -29,6 +29,7 @@ export const ResponseProvider = ({ children }) => {
           "vision":"vision of the  website (well described)",
           "feautures":"feautures of the  website (well described)",
           "tagline":"tagline should be at least and equal to 6 words only (catchy)",
+          "descriptions": "Description of the  ${description} (well described)",
           "benefits":{
             "benefit1":{
             "subtitle":"benefit1 should have a subtitle with two words",
@@ -81,16 +82,26 @@ export const ResponseProvider = ({ children }) => {
             dont add the benefit and the number in the subtitle response,
             Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
           },
+          "navLinks":{ 
+            generate nav menu based on the website with this format
+            {"title":""},
+             {"title":""},
+              {"title":""},
+               {"title":""},
+                {"title":""},
+
+          }
           "explore":{
             "title":"explore title should talk about why we should explore this app should be at least and equal to 3 words only (catchy)",
             "paragraph":"explore title should talk about why we should explore this app  should be at least and equal to 12 words only (catchy)"
              Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
           },
           "short_desc":"short description should be a short description talking about the website"
-
+Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
       }
     }
     don't add any key to any of the response just provide just response
+    don't change the title provided from the input use the title in generating the rest content
      Make sure that the JSON data you are trying to parse complies with the correct syntax of double-quoted property
   `;
       const responseGPT = await openAi.chat.completions.create({
@@ -129,4 +140,3 @@ export const ResponseProvider = ({ children }) => {
 export default ResponseContext;
 
 export const useTemplate = () => useContext(ResponseContext);
-

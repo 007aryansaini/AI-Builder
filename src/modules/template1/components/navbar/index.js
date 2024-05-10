@@ -3,7 +3,14 @@ import { IconContext } from "react-icons";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { SiWeb3Dotjs } from "react-icons/si";
+import { useTemplate } from "../../../../context/AiContext";
 export default function Navbar() {
+   const { responseState } = useTemplate();
+   const parsedContent = responseState
+     ? JSON.parse(responseState.content)
+     : null;
+   const navs = parsedContent?.data?.navLinks;
+    
   return (
     <div className="bg-[#000000] w-full font-poppins flex justify-center pt-[1%] font-clash">
       <div className="fixed  ">
@@ -16,15 +23,14 @@ export default function Navbar() {
               <div className="bg-[#181718] w-[50vw] h-[40px] px-[3%] flex  items-center text-gray-400 rounded-[50px]">
                 <nav className="w-full">
                   <ul className="flex  justify-between items-center text-xs font-medium w-full">
-                    <li>Token</li>
-                    <li>Solana</li>
-                    <li>NFT</li>
-                    <li>Token</li>
-                    <li>Collections</li>
-                    <li>Wallet</li>
-                    <li>About</li>
-                    <li>FAQ's</li>
-                    <li>Support</li>
+                    {navs &&
+                      navs.map((nav, index) => (
+                        <div key={index}>
+                          <li>
+                            {nav.title}
+                          </li>
+                        </div>
+                      ))}
                   </ul>
                 </nav>
               </div>

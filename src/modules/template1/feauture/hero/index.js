@@ -8,7 +8,7 @@ export default function Hero() {
    const { responseState } = useTemplate();
    const parsedContent = JSON.parse(responseState.content);
    const tagline = parsedContent.data.tagline;
-   const description = parsedContent.description;
+   const description = parsedContent.data.descriptions;
   return (
     <div>
       <div className="bg-[#000000] w-full font-poppins px-[5%] ">
