@@ -90,6 +90,15 @@ Generate title,description and  parts ${part1} with word limit ${limit} for this
         {"title":""},
         {"title":""}
       ],
+      {"brand_paragraph":"a paragraph text that talks about brands that trusts(15 words only)"},
+       "brands":[
+                                                                                                  
+        {"title":"a brand that trusts the website"},
+        {"title":"a brand that trusts the website"},
+        {"title":"a brand that trusts the website"},
+        {"title":"a brand that trusts the website"},
+        {"title":"a brand that trusts the website"}
+      ],
     "testimonial":[
     {"title":"short testimonial review(12 words only)",
      "subtitle":"short testimonial subtitle header(2 words only)"
