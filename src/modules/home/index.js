@@ -18,7 +18,7 @@ export default function Home() {
          
           <BrandSlider/>
           <Build />
-          <Products/>
+          {/* <Products/> */}
           <Chainlist/>
           <Pricings/>
           <FAQ/>

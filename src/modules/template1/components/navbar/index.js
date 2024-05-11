@@ -12,7 +12,7 @@ export default function Navbar() {
    const navs = parsedContent?.data?.navLinks;
     
   return (
-    <div className="bg-[#000000] w-full font-poppins flex justify-center pt-[1%] font-clash">
+    <div className="bg-black w-full font-poppins flex justify-center pt-[1%] font-clash">
       <div className="fixed  ">
         <div className="max-w-[1440px] mx-auto">
           <IconContext.Provider value={{ color: "white", size: "18px" }}>
@@ -26,9 +26,7 @@ export default function Navbar() {
                     {navs &&
                       navs.map((nav, index) => (
                         <div key={index}>
-                          <li>
-                            {nav.title}
-                          </li>
+                          <li>{nav.title}</li>
                         </div>
                       ))}
                   </ul>

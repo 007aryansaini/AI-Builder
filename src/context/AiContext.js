@@ -83,7 +83,7 @@ Generate title,description and  parts ${part1} with word limit ${limit} for this
         "answer":"Answers to the question asked (one paragraph sentence and space between the paragraph)"
         }
       ],
-      "navLinks":[
+      "navLinks":[                                                                                          
         {"title":""},
         {"title":""},
         {"title":""},
