@@ -18,7 +18,8 @@ export default function TokenUtility() {
           <p className="text-center font-clash w-[800px] "></p>
         </div>
         <div className="grid grid-cols-3  mt-[10%]">
-          <div className=" col-span-1 w-full ">
+          <div className=" col-span-1 w-full 
+          ">
            
           </div>
           <div className=" col-span-2 w-full ">
@@ -37,10 +38,11 @@ export default function TokenUtility() {
                     <GoHubot />
                   </div>
                   <div>
-                 
-                    <p className="font-clash w-[300px] text-sm mt-[4%]">
+                 <h5 className="font-clash text-white text-sm">John Doe</h5>
+                    <p className="font-clash w-[300px] text-sm mt-[3%]">
                       {testimonial.title}
                     </p>
+                    
                   </div>
                 </div>
               </div>

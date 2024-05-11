@@ -30,28 +30,33 @@ Generate title,description and  parts ${part1} with word limit ${limit} for this
       "feautures":"feautures of the  website (well described)",
       "tagline":"tagline should be at least and equal to 6 words only (catchy)",
       "descriptions": "Description of the  ${description} (well described)",
-      "benefits":{
-        "benefit1":{
-        "subtitle":"benefit1 should have a subtitle with two words",
-        "title":"benefit1 should have a title with 3 words",
-        "paragraph":"Benefit1 of the site (one paragraph sentence and space between the paragraph)"
+      "benefits":[
+        {
+        "subtitle":"benefit should have a subtitle with two words",
+        "title":"benefit should have a title with 3 words",
+        "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
         },
-        "benefit2":{
-        "subtitle":"benefit2 should have a subtitle with two words",
-        "title":"benefit2 should have a title with 3 words",
-        "paragraph":"Benefit2 of the site (one paragraph sentence and space between the paragraph)"
+        {
+         "subtitle":"benefit should have a subtitle with two words",
+        "title":"benefit should have a title with 3 words",
+        "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
         },
-        "benefit3":{
-        "subtitle":"benefit3 should have a subtitle with two words",
-        "title":"benefit3 should have a title with 3 words",
-        "paragraph":"Benefit3 of the site (one paragraph sentence and space between the paragraph)"
+         {
+        "subtitle":"benefit should have a subtitle with two words",
+        "title":"benefit should have a title with 3 words",
+        "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
         },
-        "benefit4":{
-        "subtitle":"benefit4 should have a subtitle with two words",
-        "title":"benefit4 should have a title with 3 words",
-        "paragraph":"Benefit4 of the site (one paragraph sentence and space between the paragraph)"
-        }
-      },
+         {
+        "subtitle":"benefit should have a subtitle with two words",
+        "title":"benefit should have a title with 3 words",
+        "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
+        },
+         {
+        "subtitle":"benefit should have a subtitle with two words",
+        "title":"benefit should have a title with 3 words",
+        "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
+        },
+      ],
        "faq":[
         {
         "question":"faq should be a question asked",

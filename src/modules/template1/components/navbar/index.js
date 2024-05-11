@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="fixed  ">
         <div className="max-w-[1440px] mx-auto">
           <IconContext.Provider value={{ color: "white", size: "18px" }}>
-            <div className="flex gap-3 items-center">
+            <div className="flex gap-3 items-center relative z-[10000]">
               <div className="bg-[#181718] w-[40px] h-[40px] rounded-full flex justify-center items-center">
                 <SiWeb3Dotjs />
               </div>

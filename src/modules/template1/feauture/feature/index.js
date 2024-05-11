@@ -1,16 +1,15 @@
 import React from "react";
 import { useTemplate } from "../../../../context/AiContext";
-import Benefit1 from "./benefits/Benefit1";
-import Benefit2 from "./benefits/Benefit2";
-import Benefit4 from "./benefits/Benefit4";
-import Benefit3 from "./benefits/Benefit3";
+import { GoHubot } from "react-icons/go";
 
 export default function Feauture() {
-     const { responseState } = useTemplate();
-     const parsedContent = JSON.parse(responseState.content);
-     const about = parsedContent.data.aboutus;
-     
-     
+  const { responseState } = useTemplate();
+  const parsedContent = responseState
+    ? JSON.parse(responseState.content)
+    : null;
+  const benefits = parsedContent?.data?.benefits.slice(0, 4);;
+
+  const about = parsedContent.data.aboutus;
 
   return (
     <div className="bg-[#000000] w-full font-poppins text-white mt-[10%] px-[5%] ">
@@ -23,18 +22,26 @@ export default function Feauture() {
           <p className="font-clash w-[350px]">{about}</p>
         </div>
         <div className="grid grid-cols-4  gap-8 mt-[13%]">
-          <div className=" col-span-1 w-full h-[350px]  -rotate-[3deg] border border-[#343534] bg-[#1E1E1E] rounded-[10px] px-[6%] py-[8%]">
-            <Benefit1/>
-          </div>
-          <div className=" col-span-1 w-full h-[350px] -mt-[50%] -rotate-[3deg] border border-[#343534] bg-[#1E1E1E] rounded-[10px] px-[6%] py-[8%]">
-          <Benefit2/>
-          </div>
-          <div className=" col-span-1 w-full h-[350px]  -rotate-[3deg] border border-[#343534] bg-[#1E1E1E] rounded-[10px] px-[6%] py-[8%]">
-            <Benefit3/>
-          </div>
-          <div className=" col-span-1 w-full h-[350px] -mt-[50%] -rotate-[3deg] border border-[#343534] bg-[#1E1E1E] rounded-[10px] px-[6%] py-[8%]">
-            <Benefit4/>
-          </div>
+          {benefits &&
+            benefits.map((benefit, index) => (
+              <div key={index}>
+                <div className=" col-span-1 w-full h-[350px]  -rotate-[3deg] border border-[#343534] bg-[#1E1E1E] rounded-[10px] px-[6%] py-[8%]">
+                  <div className="flex items-center gap-2">
+                    <div className="bg-[#FA0D14] rounded-full p-3 w-[40px] h-[40px] text-[20px] flex justify-center items-center">
+                      <GoHubot />
+                    </div>
+                    <div>
+                      <h5 className="font-clash text-[18px] font-semibold">
+                        {benefit.subtitle}
+                      </h5>
+                    </div>
+                  </div>
+                  <p className=" font-clash text-white/70 font-medium mt-[7%]">
+                    {benefit.paragraph}
+                  </p>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
     </div>
