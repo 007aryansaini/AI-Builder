@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import bg from "../../../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
 import ResponseContext from "../../../../../../context/AiContext";
+import Loader from "../../loader";
 
 export default function GenerateAIModal({ visible, onClose }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -147,9 +148,7 @@ export default function GenerateAIModal({ visible, onClose }) {
                 </div>
                 {isLoading && (
                   <div className="fixed inset-0 z-50 bg-black  flex justify-center items-center">
-                    <h4 className="font-clash text-white sm:text-[40px] text-center">
-                      Generating Your Site Please Wait.........
-                    </h4>
+                 <Loader/>
                   </div>
                 )}
                 <input
