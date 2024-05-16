@@ -5,6 +5,7 @@ import bg from "../../../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
 import ResponseContext from "../../../../../../context/AiContext";
 import Loader from "../../loader";
+import { Link } from "react-router-dom"
 
 export default function GenerateAIModal({ visible, onClose }) {
   const [isLoading, setIsLoading] = useState(false);
