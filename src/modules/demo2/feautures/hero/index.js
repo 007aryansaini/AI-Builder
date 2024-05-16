@@ -1,3 +1,4 @@
+
 import React from "react";
 import bgg from "../../assets/hero.png";
 import robot from "../../assets/robot.png";
@@ -40,7 +41,7 @@ export default function Hero() {
 }
 const style = {
   bg: {
-    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(rgba(0, 0, 0, 0.25)), url(${bgg})`,
+    backgroundImage: `linear-gradient(rgba(42, 62, 17, 0.19), rgba(42, 62, 17, 0.19)), url(${bgg})`,
     backgroundPosition: "50%",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",

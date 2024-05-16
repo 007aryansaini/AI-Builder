@@ -2,7 +2,8 @@ import React from 'react'
 import refresh from "../../assets/refresh.png"
 export default function Source() {
   return (
-    <div className="w-full bg-[#131C20] py-[4%]">
+    <div className="w-full bg-[#131C20] py-[4%] relative">
+        <div className="absolute top-0 right-0 w-[480px] h-[230px] blur-[150px] bg-white"/>
       <div className="mx-w-[1440px] mx-auto">
         <div className="px-[5%]">
           <div className="flex items-start gap-4">
