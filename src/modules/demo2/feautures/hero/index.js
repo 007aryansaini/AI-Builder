@@ -24,10 +24,10 @@ export default function Hero() {
             <div className="w-[468px]  flex items-center flex-col">
               <img src={laptop} alt="laptop" />
               <div className=" mt-[30%] flex gap-10 font-bold text-[24px] ">
-                <button className="px-8 py-3 border border-black bg-white rounded">
+                <button className="px-8 py-2 border border-black bg-white rounded">
                   Launch App
                 </button>
-                <button className="px-7 text-white  py-2 bg-[#131C20] rounded">
+                <button className="px-8 text-white  py-2 bg-[#131C20] border border-white/10% rounded">
                   Launch App
                 </button>
               </div>

@@ -21,7 +21,7 @@ export default function Navbar() {
               <h5>Token</h5>
               <h5>FAQS</h5>
             </nav>
-            <button className="px-7 py-2 bg-white rounded">Launch App</button>
+            <button className="px-8 py-2 bg-white rounded text-[24px]">Launch App</button>
           </div>
         </div>
       </div>
