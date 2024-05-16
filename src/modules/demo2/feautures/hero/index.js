@@ -23,11 +23,11 @@ export default function Hero() {
           <div className="absolute left-0 top-[35%] ">
             <div className="w-[468px]  flex items-center flex-col">
               <img src={laptop} alt="laptop" />
-              <div className=" mt-[10%] flex gap-10 ">
-                <button className="px-7 py-2 bg-white rounded">
+              <div className=" mt-[30%] flex gap-10 font-bold text-[24px] ">
+                <button className="px-8 py-3 border border-black bg-white rounded">
                   Launch App
                 </button>
-                <button className="px-7  py-2 bg-[#131C20] rounded">
+                <button className="px-7 text-white  py-2 bg-[#131C20] rounded">
                   Launch App
                 </button>
               </div>
@@ -40,7 +40,7 @@ export default function Hero() {
 }
 const style = {
   bg: {
-    backgroundImage: `linear-gradient(rgba(42, 62, 17, 0.19), rgba(42, 62, 17, 0.19)), url(${bgg})`,
+    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.25), rgba(rgba(0, 0, 0, 0.25)), url(${bgg})`,
     backgroundPosition: "50%",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
