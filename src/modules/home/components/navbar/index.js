@@ -11,7 +11,7 @@ export default function Navbar() {
           <div className="w-full flex justify-between items-center sm:px-[5%] px-[4%]">
             <Link to="/">
               {" "}
-              <h4 className="text-white font-bold text-2xl">LOGO</h4>
+              <h4 className="text-white font-bold text-2xl">DEVELOP AI</h4>
             </Link>
 
             <nav className="sm:flex hidden">
