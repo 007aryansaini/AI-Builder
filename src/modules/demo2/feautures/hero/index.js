@@ -27,7 +27,7 @@ export default function Hero() {
                 <button className="px-8 py-2 border border-black bg-white rounded">
                   Launch App
                 </button>
-                <button className="px-8 text-white  py-2 bg-[#131C20] border border-white/10% rounded">
+                <button className="px-8 text-white  py-2 bg-[#131C20] border border-[#ffffff38] rounded">
                   Launch App
                 </button>
               </div>
