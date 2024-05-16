@@ -53,6 +53,11 @@ export default function GenerateAIModal({ visible, onClose }) {
       onClick={handleClose}
     >
       <div className="bg-black text-white w-[90%] pt-[5%] h-[100vh]">
+        <Link to="/">
+          {" "}
+          <h4 className="text-white font-bold text-2xl">DEVELOP AI</h4>
+        </Link>
+
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
