@@ -1,11 +1,13 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { staggerContainer, slideIn, fadeIn } from "../../utils/motion";
-import web3 from "../../assets/web3.png"
-import GenerateAIModal from "../../components/ui/modals/generatemodal/GenerateAI";
+import web3 from "../../assets/web3.png";
+
+import { useNavigate } from "react-router-dom";
 export default function Hero() {
-    const [showModal, setShowModal] = useState(false);
-    const handleClose = () => setShowModal(false);
+  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
+  const handleClose = () => setShowModal(false);
   return (
     <motion.div
       variants={staggerContainer}
@@ -33,28 +35,24 @@ export default function Hero() {
           Automate Development <br className="sm:flex hidden" /> AI for
           Development
         </h1>
-        <motion.p  className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
+        <motion.p className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
           Create unique brand identity,generate and pushlish{" "}
           <br className="sm:flex hidden" /> consistence while we make devlopment
           easy as it always <br className="sm:flex hidden" />
           feels good to to things perfectedly
         </motion.p>
+
         <button
           onClick={() => {
-            setShowModal(true);
+            navigate("/generate");
           }}
           className=" bg-[#8d00ce] px-8 rounded-[50px] mt-2 sm:mt-2 font-clash text-white font-semibold py-2"
         >
           Generate your website
         </button>
-        <GenerateAIModal onClose={handleClose} visible={showModal} />
+
         <div className="sm:mt-[5%] mt-[10%]">
-          <motion.img
-            
-            className=""
-            src={web3}
-            alt="web3"
-          />
+          <motion.img className="" src={web3} alt="web3" />
         </div>
       </div>
     </motion.div>

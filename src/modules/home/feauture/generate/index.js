@@ -1,29 +1,55 @@
 import React, { useContext, useState } from "react";
-import { useForm } from "../../../../../../context/store";
-import { useNavigate } from "react-router-dom";
-import bg from "../../../../assets/bg.jpg";
+import { useForm } from "../../../../context/store";
+import { Link, useNavigate } from "react-router-dom";
+import bg from "../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
-import ResponseContext from "../../../../../../context/AiContext";
-import Loader from "../../loader";
-import { Link } from "react-router-dom"
+import ResponseContext from "../../../../context/AiContext";
 
-export default function GenerateAIModal({ visible, onClose }) {
-  const [isLoading, setIsLoading] = useState(false);
+import { MultiStepLoader as Loader } from "../../components/ui/loader/index";
+import { IconSquareRoundedX } from "@tabler/icons-react";
+
+const loadingStates = [
+  {
+    text: "Preparing the foundation for your new website...",
+  },
+  {
+    text: "Installing essential components for a smooth user experience...",
+  },
+  {
+    text: "Customizing the layout to match your style preferences...",
+  },
+  {
+    text: "Optimizing images and media for fast loading times...",
+  },
+  {
+    text: "Integrating interactive elements to engage your visitors...",
+  },
+  {
+    text: "Testing compatibility across different devices and browsers...",
+  },
+  {
+    text: "Applying final touches to ensure everything looks perfect...",
+  },
+  {
+    text: "Your website is almost ready! Just a few more moments..",
+  },
+];
+
+export default function GenerateAI() {
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
-  const handleClose = (e) => {
-    if (e.target.id === "container") onClose();
-  };
 
   const { handleInputChange, template, setTemplate } = useForm();
   const { fetchResponse } = useContext(ResponseContext);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
-     if (!template.websiteTitle || !template.description || !template.purpose) {
-       setIsLoading(false);
-       return;
-     }
+    setLoading(true);
+    if (!template.websiteTitle || !template.description || !template.purpose) {
+      setLoading(false);
+      return;
+    }
 
     await fetchResponse(
       template.websiteTitle,
@@ -35,7 +61,7 @@ export default function GenerateAIModal({ visible, onClose }) {
     console.log(template);
     handleInputChange(event);
     navigate("/generated-page");
-    setIsLoading(false);
+    setLoading(false);
   };
   const handleReset = () => {
     setTemplate({
@@ -45,41 +71,19 @@ export default function GenerateAIModal({ visible, onClose }) {
     });
   };
 
-  if (!visible) return null;
-
   return (
-    <div
-      id="container"
-      className="fixed z-20 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center   justify-center"
-      onClick={handleClose}
-    >
-      <div className="bg-black text-white w-[90%] py-[5%] h-full ">
-        <Link to="/">
-          {" "}
-          <h4 className="text-white font-bold text-2xl">DEVELOP AI</h4>
-        </Link>
-
+    <div className="flex items-center   justify-center">
+      <div className="bg-black text-white w-[90%] pt-[5%] h-[100vh]">
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
           </div>
           <div class="col-span-8 w-full sm:px-[10%] px-[5%]">
-            <button id="container" onClick={handleClose} class="font-clash ">
-              Ok, Close
-            </button>
             <div class="font-clash py-[2%] ">
               <h5 className="text-3xl font-semibold">
                 Let's create your Website
               </h5>
-              {/* <div className="mt-[2%]">
-                <label className="text-lg ">Looking for?</label>
-                <div class="grid sm:grid-cols-3">
-                  <div class="flex h-[44px] px-4 rounded-[6px] items-center gap-3 border border-white w-full">
-                    <div class="w-[20px] h-[20px] border rounded-full"></div>
-                    <h6>WEBSITE</h6>
-                  </div>
-                </div>
-              </div> */}
+
               <form
                 onSubmit={handleSubmit}
                 className="flex h-[75vh] justify-between flex-col mt-[4%]"
@@ -117,17 +121,28 @@ export default function GenerateAIModal({ visible, onClose }) {
                     required
                   ></textarea>
                 </div>
-                {isLoading && (
-                  <div className="fixed inset-0 z-50 bg-black  flex justify-center items-center">
-                    <Loader />
-                  </div>
+
+                <Loader
+                  loadingStates={loadingStates}
+                  loading={loading}
+                  duration={2000}
+                />
+
+                {loading && (
+                  <button
+                    className="fixed top-4 right-4 text-white z-[120]"
+                    onClick={() => setLoading(false)}
+                  >
+                    <IconSquareRoundedX className="h-10 w-10" />
+                  </button>
                 )}
+
                 <input
                   className="cursor-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
-                  value={isLoading ? "Generating..." : "Generate my site"} // Render different text based on loading state
+                  value={loading ? "Generating..." : "Generate my site"} // Render different text based on loading state
                   onClick={handleSubmit}
-                  disabled={isLoading}
+                  disabled={loading}
                 />
               </form>
             </div>

@@ -13,6 +13,7 @@ import Desktop from "./modules/amplichat/Desktop";
 import Template7 from "./modules/templat7";
 import Demo1 from "./modules/demo1";
 import Demo2 from "./modules/demo2";
+import GenerateAI from "./modules/home/feauture/generate";
 
 
 
@@ -25,6 +26,7 @@ function Routess() {
           <Route path="/demo-1" element={<Demo1 />} />
           <Route path="/generated-template-3" element={<Template4 />} />
           <Route path="/demo-2" element={<Demo2 />} />
+          <Route path="/generate" element={<GenerateAI />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/generated-page" element={<GeneratedPage />} />
             <Route path="/generated-template-8" element={<Template1 />} />
