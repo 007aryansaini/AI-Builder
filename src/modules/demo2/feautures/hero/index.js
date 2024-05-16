@@ -47,5 +47,7 @@ const style = {
     backgroundRepeat: "no-repeat",
     width: "100%",
     height: "872px",
+    position:"relative",
+    zIndex:"999"
   },
 };
