@@ -12,6 +12,7 @@ import Cryzpto from "./modules/cryzpto";
 import Desktop from "./modules/amplichat/Desktop";
 import Template7 from "./modules/templat7";
 import Demo1 from "./modules/demo1";
+import Demo2 from "./modules/demo2";
 
 
 
@@ -22,10 +23,11 @@ function Routess() {
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/demo-1" element={<Demo1 />} />
-
+          <Route path="/generated-template-3" element={<Template4 />} />
+          <Route path="/demo2" element={<Demo2 />} />
           <Route element={<PrivateRoutes />}>
-            {/* <Route path="/generated-page" element={<GeneratedPage />} /> */}
-            <Route path="/generated-page" element={<Template1 />} />
+            <Route path="/generated-page" element={<GeneratedPage />} />
+            <Route path="/generated-template-8" element={<Template1 />} />
             <Route path="/generated-template-6" element={<Desktop />} />
             <Route path="/generated-template-7" element={<Template7 />} />
             <Route path="/generated-template-4" element={<Template4 />} />

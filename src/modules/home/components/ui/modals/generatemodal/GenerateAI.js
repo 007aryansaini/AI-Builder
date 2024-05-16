@@ -52,48 +52,13 @@ export default function GenerateAIModal({ visible, onClose }) {
       className="fixed z-20 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center   justify-center"
       onClick={handleClose}
     >
-      {/* <div className="bg-white w-[70%] h-[200px]">
-        <form onSubmit={handleSubmit}>
-          <label>
-            websiteTitle:
-            <input
-              type="text"
-              name="websiteTitle"
-              value={template.websiteTitle}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            description:
-            <input
-              type="text"
-              name="description"
-              value={template.description}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <label>
-            purpose:
-            <input
-              type="text"
-              name="purpose"
-              value={template.purpose}
-              onChange={handleInputChange}
-              required
-            />
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      </div> */}
       <div className="bg-black text-white w-[90%] pt-[5%] h-[100vh]">
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
             <img className="w-full h-full object-cover" src={bg} alt="bg" />
           </div>
           <div class="col-span-8 w-full sm:px-[10%] px-[5%]">
-            <button onClick={handleClose} class="font-clash ">
+            <button id="container" onClick={handleClose} class="font-clash ">
               Ok, Close
             </button>
             <div class="font-clash py-[2%] ">
@@ -148,7 +113,7 @@ export default function GenerateAIModal({ visible, onClose }) {
                 </div>
                 {isLoading && (
                   <div className="fixed inset-0 z-50 bg-black  flex justify-center items-center">
-                 <Loader/>
+                    <Loader />
                   </div>
                 )}
                 <input
@@ -158,7 +123,6 @@ export default function GenerateAIModal({ visible, onClose }) {
                   onClick={handleSubmit}
                   disabled={isLoading}
                 />
-                
               </form>
             </div>
           </div>
