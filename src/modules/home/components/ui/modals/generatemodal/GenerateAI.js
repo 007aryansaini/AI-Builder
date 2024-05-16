@@ -53,7 +53,7 @@ export default function GenerateAIModal({ visible, onClose }) {
       className="fixed z-20 inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex items-center   justify-center"
       onClick={handleClose}
     >
-      <div className="bg-black text-white w-[90%] pt-[5%] h-[100vh]">
+      <div className="bg-black text-white w-[90%] py-[5%] h-full ">
         <Link to="/">
           {" "}
           <h4 className="text-white font-bold text-2xl">DEVELOP AI</h4>
