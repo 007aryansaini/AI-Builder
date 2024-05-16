@@ -24,7 +24,7 @@ function Routess() {
           <Route path="/" exact element={<Home />} />
           <Route path="/demo-1" element={<Demo1 />} />
           <Route path="/generated-template-3" element={<Template4 />} />
-          <Route path="/demo2" element={<Demo2 />} />
+          <Route path="/demo-2" element={<Demo2 />} />
           <Route element={<PrivateRoutes />}>
             <Route path="/generated-page" element={<GeneratedPage />} />
             <Route path="/generated-template-8" element={<Template1 />} />

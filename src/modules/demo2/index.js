@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./components/navbar";
+import Hero from "./feautures/hero";
 
 export default function Demo2() {
   return (
-    <div>index</div>
-  )
+    <div className="font-stick">
+      <Navbar />
+      <Hero />
+    </div>
+  );
 }
