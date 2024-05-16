@@ -20,9 +20,17 @@ export default function Hero() {
               </p>
             </div>
           </div>
-          <div className="absolute left-0 top-[30%] ">
-            <div className="w-[468px]">
-              <img src={laptop}  alt="laptop" />
+          <div className="absolute left-0 top-[35%] ">
+            <div className="w-[468px]  flex items-center flex-col">
+              <img src={laptop} alt="laptop" />
+              <div className=" mt-[10%] flex gap-10 ">
+                <button className="px-7 py-2 bg-white rounded">
+                  Launch App
+                </button>
+                <button className="px-7  py-2 bg-[#131C20] rounded">
+                  Launch App
+                </button>
+              </div>
             </div>
           </div>
         </div>
