@@ -23,7 +23,7 @@ export default function Hero() {
           <div className="absolute left-0 top-[35%] ">
             <div className="w-[468px]  flex items-center flex-col">
               <img src={laptop} alt="laptop" />
-              <div className=" mt-[30%] flex gap-10 font-bold text-[24px] ">
+              <div className=" mt-[20%] flex gap-10 font-bold text-[24px] ">
                 <button className="px-8 py-2 border border-black bg-white rounded">
                   Launch App
                 </button>
