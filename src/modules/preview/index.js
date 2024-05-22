@@ -1,40 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
+import { useTemplate } from "../../context/AiContext";
+import { Link } from "react-router-dom";
 
 const Preview = () => {
-  const { id } = useParams();
-  const [promptData, setPromptData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:8000/api/v1/data/promptData/${id}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const data = await response.json();
-        setPromptData(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [id]);
-
+  const { id } = useTemplate();
   return (
-    <div>
-      {promptData ? (
-        <div>
-          <h1>{promptData.title}</h1>
-          <p>{promptData.description}</p>
-          {/* Render other parts of the promptData as needed */}
+    <div className="max-w-[1440px] mx-auto">
+      <div className="px-[5%] pt-[3%]">
+        <div className="grid grid-cols-4">
+          <div className="bg-white w-full h-[300px]"></div>
+
+          <Link to={`/preview/${id}`} className="text-white">
+            Preview Now
+          </Link>
+          <button></button>
         </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      </div>
     </div>
   );
 };

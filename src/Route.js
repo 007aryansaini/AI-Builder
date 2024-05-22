@@ -14,32 +14,37 @@ import Template7 from "./modules/templat7";
 import Demo1 from "./modules/demo1";
 import Demo2 from "./modules/demo2";
 import GenerateAI from "./modules/home/feauture/generate";
+import Preview from "./modules/preview";
+import PreviewSite from "./modules/previewsite";
+import Previeww from "./pages/Preview";
+
 
 
 
 function Routess() {
+ 
   return (
     <div>
-      <Router>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/demo-1" element={<Demo1 />} />
-          <Route path="/generated-template-3" element={<Template4 />} />
-          <Route path="/demo-2" element={<Demo2 />} />
-          <Route path="/generate" element={<GenerateAI />} />
-          <Route element={<PrivateRoutes />}>
-            <Route path="/generated-page" element={<GeneratedPage />} />
-            <Route path="/generated-template-8" element={<Template1 />} />
-            <Route path="/generated-template-6" element={<Desktop />} />
-            <Route path="/generated-template-7" element={<Template7 />} />
-            <Route path="/generated-template-4" element={<Template4 />} />
-            <Route path="/generated-template-5" element={<Cryzpto />} />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/demo-1" element={<Demo1 />} />
+        <Route path="/generated-template-3" element={<Template4 />} />
+        <Route path="/demo-2" element={<Demo2 />} />
+        <Route path="/generate" element={<GenerateAI />} />
+        <Route path="/generated" element={<Preview />} />
+        <Route path="/preview/:id" element={<Previeww />} />
+        <Route path="/generated-page" element={<GeneratedPage />} />
+        <Route element={<PrivateRoutes />}>
+          <Route path="/generated-template-8" element={<Template1 />} />
+          <Route path="/generated-template-6" element={<Desktop />} />
+          <Route path="/generated-template-7" element={<Template7 />} />
+          <Route path="/generated-template-4" element={<Template4 />} />
+          <Route path="/generated-template-5" element={<Cryzpto />} />
 
-            <Route path="/generated-template-1" element={<Template1 />} />
-            <Route path="/generated-template-2" element={<Omega />} />
-          </Route>
-        </Routes>
-      </Router>
+          <Route path="/generated-template-1" element={<Template1 />} />
+          <Route path="/generated-template-2" element={<Omega />} />
+        </Route>
+      </Routes>
     </div>
   );
 }

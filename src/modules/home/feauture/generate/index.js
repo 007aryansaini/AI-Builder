@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "../../../../context/store";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import bg from "../../assets/bg.jpg";
 import { FiRefreshCcw } from "react-icons/fi";
-import ResponseContext from "../../../../context/AiContext";
+import ResponseContext, { useTemplate } from "../../../../context/AiContext";
 
 import { MultiStepLoader as Loader } from "../../components/ui/loader/index";
 import { IconSquareRoundedX } from "@tabler/icons-react";
@@ -39,6 +39,7 @@ export default function GenerateAI() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  
 
   const { handleInputChange, template, setTemplate } = useForm();
   const { fetchResponse } = useContext(ResponseContext);
@@ -60,7 +61,7 @@ export default function GenerateAI() {
 
     console.log(template);
     handleInputChange(event);
-    navigate("/generated-page");
+    navigate(`/generated`);
     setLoading(false);
   };
   const handleReset = () => {

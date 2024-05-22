@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import OpenAI from "openai";
+import { useNavigate } from "react-router-dom";
 
 const openAi = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -10,6 +11,9 @@ const ResponseContext = createContext();
 
 export const ResponseProvider = ({ children }) => {
   const [responseState, setResponseState] = useState(null);
+  const [id, setId] = useState(null);
+
+
 
   const fetchResponse = async (title, description, limit, part1, purpose) => {
     try {
@@ -137,8 +141,7 @@ export const ResponseProvider = ({ children }) => {
       console.error("Error fetching response:", error);
     }
   };
-
-  const postResponseToAPI = async (data) => {
+ const postResponseToAPI = async (data) => {
     try {
       const response = await fetch(
         "http://localhost:8000/api/v1/data/promptData",
@@ -156,18 +159,17 @@ export const ResponseProvider = ({ children }) => {
       }
 
       const result = await response.json();
-      console.log("Post response result:", result);
+      console.log(result.data._id);
+      setId(result.data._id);
+      console.log(result.data._id); 
+
     } catch (error) {
       console.error("Error posting response to API:", error);
     }
   };
 
-  useEffect(() => {
-    console.log(responseState);
-  }, [responseState]);
-
   return (
-    <ResponseContext.Provider value={{ responseState, fetchResponse }}>
+    <ResponseContext.Provider value={{ responseState, fetchResponse,id }}>
       {children}
     </ResponseContext.Provider>
   );

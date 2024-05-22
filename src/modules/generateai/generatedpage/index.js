@@ -55,7 +55,7 @@ const { tagline, description } = selectedTemplate.content;
   return (
     <div>
     
-      <div>{selectedTemplate.info}</div>
+      <div>{selectedTemplate.name}</div>
     
       
     </div>
