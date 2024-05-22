@@ -1,4 +1,3 @@
-// ResponseContext.js
 import React, { createContext, useState, useEffect, useContext } from "react";
 import OpenAI from "openai";
 
@@ -18,12 +17,12 @@ export const ResponseProvider = ({ children }) => {
         Generate content for my website with the title ${title} and description ${description} and the ${purpose}. I'd like to generate more parts of the website.
         Generate title, description, and parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below:   
         {
-          "title": "Title of an Idea of that ${title} (short and catchy)",
+          "title": "Title the website ",
           "data":{
-              "footer":"footer of the website (well described)",
-              "aboutus":"aboutus section of the website (well described)",
-              "mission":"mission of the website (well described)",
-              "vision":"vision of the website (well described)",
+              "footer":"generate a footer for the website (well described)",
+              "aboutus":"generate aboutus section for the website (well described)",
+              "mission":"generate mission for the website (well described)",
+              "vision":"generate vision for the website (well described)",
               "feautures":"feautures of the website (well described)",
               "tagline":"tagline should be at least and equal to 6 words only (catchy)",
               "descriptions": "Description of the ${description} (well described)",
@@ -129,15 +128,40 @@ export const ResponseProvider = ({ children }) => {
         ],
       });
 
-      const message = responseGPT.choices[0].message;
-      console.log("Raw message:", message);
-      const parsedMessage = message;
-      console.log("Parsed message:", parsedMessage);
+      const message = responseGPT.choices[0].message.content;
+      console.log("message:", message);
+      const parsedMessage = JSON.parse(message); 
       setResponseState(parsedMessage);
+      await postResponseToAPI(parsedMessage);
     } catch (error) {
       console.error("Error fetching response:", error);
     }
   };
+
+  const postResponseToAPI = async (data) => {
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/v1/data/promptData",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to post data to the API");
+      }
+
+      const result = await response.json();
+      console.log("Post response result:", result);
+    } catch (error) {
+      console.error("Error posting response to API:", error);
+    }
+  };
+
   useEffect(() => {
     console.log(responseState);
   }, [responseState]);
