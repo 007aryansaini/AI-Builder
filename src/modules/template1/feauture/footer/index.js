@@ -3,13 +3,8 @@ import { SiMakerbot } from "react-icons/si";
 import { FaDiscord, FaInstagramSquare, FaTwitter, FaYoutube } from "react-icons/fa";
 import { useTemplate } from "../../../../context/AiContext";
 import { useForm } from "../../../../context/store";
-export default function Footer() {
-   const { responseState } = useTemplate();
-   const { template } = useForm();
-  
-   const parsedContent = JSON.parse(responseState.content);
-   
-   const short_desc = parsedContent.data.short_desc;
+export default function Footer({ promptData, parts }) {
+  const short_desc = parts?.short_desc;
   return (
     <div className="bg-[#000000] w-full font-poppins text-white mt-[6%] px-[5%] ">
       <div className="max-w-[1440px] mx-auto">
@@ -17,7 +12,7 @@ export default function Footer() {
           <div className="flex items-center gap-3 text-[#FA0D14] ">
             <SiMakerbot className="text-[50px]" />
             <h4 className="font-clash text-[40px] font-semibold">
-              {template?.websiteTitle}
+              {promptData?.title}
             </h4>
           </div>
           <p className="font-clash text-center w-[500px] mt-[1%] ">
@@ -41,7 +36,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }

@@ -10,7 +10,7 @@ const Preview = () => {
         <div className="grid grid-cols-4">
           <div className="bg-white w-full h-[300px]"></div>
 
-          <Link to={`/preview/${id}`} className="text-white">
+          <Link to={`/generated-page/${id}`} className="text-white">
             Preview Now
           </Link>
           <button></button>

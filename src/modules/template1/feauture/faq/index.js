@@ -1,15 +1,8 @@
 import React from "react";
 import Accordion from "./FAQ";
-import { useTemplate } from "../../../../context/AiContext";
-
-export default function FAQ() {
-  const { responseState } = useTemplate();
-  const parsedContent = responseState
-    ? JSON.parse(responseState.content)
-    : null;
-  const faqs = parsedContent?.data?.faq;
-
-  const short_desc = parsedContent.data.short_desc;
+export default function FAQ({ promptData, parts }) {
+  const faqs = parts?.faq;
+  const short_desc = parts?.short_desc;
   return (
     <div className="bg-[#000000] w-full font-poppins text-white mt-[6%] px-[5%] ">
       <div className="max-w-[1440px] mx-auto">

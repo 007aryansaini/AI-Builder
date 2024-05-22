@@ -1,13 +1,9 @@
 import React from "react";
 import { useTemplate } from "../../../../context/AiContext";
 
-export default function Brands() {
-      const { responseState } = useTemplate();
-      const parsedContent = responseState
-        ? JSON.parse(responseState.content)
-        : null;
-      const brands = parsedContent?.data?.brands;
-      const brand_paragraph = parsedContent?.data?.brand_paragraph;
+export default function Brands({ promptData, parts }) {
+  const brands = parts?.brands;
+  const brand_paragraph = parts?.brand_paragraph;
   return (
     <div>
       <div>

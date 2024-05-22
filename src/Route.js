@@ -33,7 +33,7 @@ function Routess() {
         <Route path="/generate" element={<GenerateAI />} />
         <Route path="/generated" element={<Preview />} />
         <Route path="/preview/:id" element={<Previeww />} />
-        <Route path="/generated-page" element={<GeneratedPage />} />
+        <Route path="/generated-page/:id" element={<GeneratedPage />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/generated-template-8" element={<Template1 />} />
           <Route path="/generated-template-6" element={<Desktop />} />

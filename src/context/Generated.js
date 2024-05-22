@@ -12,15 +12,6 @@ const AiContext = createContext();
 export const AiProvider = ({ children }) => {
   const [templates] = useState([
     {
-      id: 1,
-      name: "Template 1",
-      info: <Quickwswap />,
-      content: {
-        tagline: "Tagline for Template 1",
-        description: "Description for Template 1",
-      },
-    },
-    {
       id: 2,
       name: "Template 2",
       info: <Template1 />,
@@ -29,33 +20,9 @@ export const AiProvider = ({ children }) => {
         description: "Description for Template 2",
       },
     },
-    {
-      id: 3,
-      name: "Template 3",
-      info: <Cryzpto />,
-      content: {
-        tagline: "Tagline for Template 3",
-        description: "Description for Template 3",
-      },
-    },
-    {
-      id: 4,
-      name: "Template 4",
-      info: <Template4 />,
-      content: {
-        tagline: "Tagline for Template 4",
-        description: "Description for Template 4",
-      },
-    },
-    {
-      id: 5,
-      name: "Template 5",
-      info: <Desktop />,
-      content: {
-        tagline: "Tagline for Template 5",
-        description: "Description for Template 5",
-      },
-    },
+   
+   
+  
     // Add more templates as needed
   ]);
 
