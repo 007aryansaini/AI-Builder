@@ -3,7 +3,9 @@ import React from "react";
 import bgg from "../../assets/hero.png";
 import robot from "../../assets/robot.png";
 import laptop from "../../assets/laptop.png"
-export default function Hero() {
+export default function Hero({ promptData, parts }) {
+  const tagline = parts?.tagline;
+  const description = parts?.descriptions;
   return (
     <div className="" style={style.bg}>
       <div className="max-w-[1440px] mx-auto ">
@@ -11,13 +13,10 @@ export default function Hero() {
           <img src={robot} className="w-[1000px] h-[872px]" alt="robot" />
           <div className="absolute right-0 top-[20%] ">
             <div className="w-[468px]">
-              <h2 className="text-[48px] int font-bold">
-                Introducing the Next-Generation Memecoin Analysis Bot
-              </h2>
+              <h2 className="text-[48px] int font-bold">{tagline}</h2>
               <hr className="w-full h-[10px] bg-white" />
               <p className="text-lg font-bold text-white mt-[2%]">
-                Combustion is a revolutionary tool that allows you to analyze
-                trending tokens and make informed decisions.
+                {description}
               </p>
             </div>
           </div>

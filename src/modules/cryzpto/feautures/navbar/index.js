@@ -4,7 +4,9 @@ import { BsArrowDownShort, BsArrowUpShort } from "react-icons/bs";
 import { IconContext } from "react-icons/lib";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ promptData, parts }) {
+    const navs = parts?.navLinks;
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   useEffect(() => {
@@ -68,10 +70,12 @@ function Navbar() {
         </div>
         <nav className="w-[440px] h-[35px] bg-[#181818] sm:flex hidden justify-center items-center border border-[#969696] rounded-[8px]">
           <ul className="flex gap-7 text-[#C3C3C3] text-sm">
-            <li>About</li>
-            <li>Product</li>
-            <li>Solution</li>
-            <li>Company</li>
+            {navs &&
+              navs.map((nav, index) => (
+                <div key={index}>
+                  <li>{nav.title}</li>
+                </div>
+              ))}
           </ul>
         </nav>
         <div className="flex gap-1 text-[#C3C3C3] text-sm">

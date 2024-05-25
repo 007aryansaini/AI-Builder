@@ -1,63 +1,49 @@
 import React, { useState, useEffect } from "react";
 import { useAi } from "../../../context/Generated";
-
-
+import { useParams } from "react-router-dom";
 
 export default function GeneratedPage() {
-const { templates } = useAi();
-const [shownTemplateIndices, setShownTemplateIndices] = useState([]);
-const [selectedTemplateIndex, setSelectedTemplateIndex] = useState(null);
+  const { templates } = useAi();
+  const [selectedTemplateIndex, setSelectedTemplateIndex] = useState(null);
+  const { id } = useParams();
 
-// Shuffle the indices when all templates have been shown
-useEffect(() => {
-  if (shownTemplateIndices.length === templates.length) {
-    setShownTemplateIndices([]);
+
+  useEffect(() => {
+    const fetchSavedIndex = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:8000/api/v1/data/promptData/${id}`
+        );
+        if (!response.ok) {
+        throw new Error("Failed to fetch the saved index");
+        }
+        const data = await response.json();
+        const savedIndex = parseInt(data.data.savedIndex, 10);
+        setSelectedTemplateIndex(savedIndex);
+      } catch (error) {
+        console.error("Error fetching the saved index:", error);
+        
+        // showNextTemplate();
+      }
+    };
+
+    fetchSavedIndex();
+  }, [templates]);
+
+  // const showNextTemplate = () => {
+  //   let availableIndices = templates.map((_, index) => index);
+
+  //   const randomIndex =
+  //     availableIndices[Math.floor(Math.random() * availableIndices.length)];
+  //   setSelectedTemplateIndex(randomIndex);
+  //   localStorage.setItem("selectedTemplateIndex", randomIndex);
+  // };
+
+  if (selectedTemplateIndex === null) {
+    return <div>No templates to show</div>;
   }
-}, [shownTemplateIndices, templates]);
 
-const showNextTemplate = () => {
-  let availableIndices = templates.map((_, index) => index);
-  availableIndices = availableIndices.filter(
-    (index) => !shownTemplateIndices.includes(index)
-  );
+  const selectedTemplate = templates[selectedTemplateIndex];
 
-  if (availableIndices.length === 0) {
-    setShownTemplateIndices([]);
-    availableIndices = templates.map((_, index) => index);
-  }
-
-  const randomIndex =
-    availableIndices[Math.floor(Math.random() * availableIndices.length)];
-  setSelectedTemplateIndex(randomIndex);
-  setShownTemplateIndices([...shownTemplateIndices, randomIndex]);
-};
-
-const showPreviousTemplate = () => {
-  if (shownTemplateIndices.length === 0) {
-    return;
-  }
-
-  const lastShownIndex = shownTemplateIndices[shownTemplateIndices.length - 1];
-  setShownTemplateIndices(shownTemplateIndices.slice(0, -1));
-  setSelectedTemplateIndex(lastShownIndex);
-};
-
-useEffect(() => {
-  showNextTemplate();
-}, []); // Show the first template when component mounts
-
-if (selectedTemplateIndex === null) {
-  return <div>No templates to show</div>;
-}
-
-const selectedTemplate = templates[selectedTemplateIndex];
-const { tagline, description } = selectedTemplate.content;
-  return (
-    <div>
-    
-      <div className="text-white">{selectedTemplate.info}</div>
-    
-      
-    </div>
-  );
+  return <div>{selectedTemplate.info}</div>;
 }

@@ -5,12 +5,10 @@ import { BsArrowUp, BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { TiFlash } from "react-icons/ti";
 import { PiHashStraightBold } from "react-icons/pi";
 import { useTemplate } from "../../../../context/AiContext";
-function Hero() {
-    const { responseState } = useTemplate();
-    const parsedContent = JSON.parse(responseState.content);
-    const tagline = parsedContent.data.tagline;
-    const description = parsedContent.description;
-  
+function Hero({ promptData, parts }) {
+  const tagline = parts?.tagline;
+  const description = parts?.descriptions;
+
   return (
     <div>
       <div className="flex justify-center items-center overflow-x-hidden  ">
@@ -38,8 +36,7 @@ function Hero() {
         <div className="relative ">
           <div className="w-[500px] h-[500px] border  border-[#969696] rounded-full bgg  flex justify-center items-center flex-col gap-7">
             <h5 className="text-[14px] text-center text-[#C3C3C3]">
-              Al-powered system suggests personalized <br /> content based on
-              user preference
+              {description}
             </h5>
             <h2 className="text-[60px]  w-[700px]  text-center leading-[70px] font-normal text-[#C3C3C3]">
               {tagline}

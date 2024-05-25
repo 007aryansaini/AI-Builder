@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
-export default function Navbar() {
+export default function Navbar({ promptData, parts }) {
+  const navs = parts?.navLinks;
+  const logoo = promptData?.title
   return (
     <div>
       <div className="  w-full h-[12vh] bg-[#131C20]  flex items-center">
@@ -11,17 +13,21 @@ export default function Navbar() {
               <div className="flex items-center gap-2 ">
                 <img src={logo} alt="logo" />
                 <h4 className="font-bold text-white uppercase text-[20px]">
-                  MEMeSCANNER
+                  {logoo}
                 </h4>
               </div>
             </Link>
             <nav className="  flex gap-12 text-[20px] items-center font-bold text-white uppercase">
-              <h5>About</h5>
-              <h5>Utilty</h5>
-              <h5>Token</h5>
-              <h5>FAQS</h5>
+              {navs &&
+                navs.map((nav, index) => (
+                  <div key={index}>
+                    <li>{nav.title}</li>
+                  </div>
+                ))}
             </nav>
-            <button className="px-8 py-2 bg-white rounded text-[24px]">Launch App</button>
+            <button className="px-8 py-2 bg-white rounded text-[24px]">
+              Launch App
+            </button>
           </div>
         </div>
       </div>

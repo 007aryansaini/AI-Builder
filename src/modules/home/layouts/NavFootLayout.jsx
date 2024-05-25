@@ -8,7 +8,7 @@ export default function NavFootLayout(props) {
     <div>
       <Navbar />
       {props.children}
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
 import OpenAI from "openai";
 import { useNavigate } from "react-router-dom";
+import { useAi } from "./Generated";
 
 const openAi = new OpenAI({
   apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -10,6 +11,10 @@ const openAi = new OpenAI({
 const ResponseContext = createContext();
 
 export const ResponseProvider = ({ children }) => {
+ const { selectedTemplateId, templates } = useAi() || {
+   selectedTemplateId: null,
+   templates: [],
+ };
   const [responseState, setResponseState] = useState(null);
   const [id, setId] = useState(null);
 
@@ -17,6 +22,7 @@ export const ResponseProvider = ({ children }) => {
 
   const fetchResponse = async (title, description, limit, part1, purpose) => {
     try {
+    
       const prompt = `
         Generate content for my website with the title ${title} and description ${description} and the ${purpose}. I'd like to generate more parts of the website.
         Generate title, description, and parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below:   
@@ -52,6 +58,21 @@ export const ResponseProvider = ({ children }) => {
                   "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
                 },
                 {
+                  "subtitle":"benefit should have a subtitle with two words",
+                  "title":"benefit should have a title with 3 words",
+                  "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
+                },
+                  {
+                  "subtitle":"benefit should have a subtitle with two words",
+                  "title":"benefit should have a title with 3 words",
+                  "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
+                },
+                  {
+                  "subtitle":"benefit should have a subtitle with two words",
+                  "title":"benefit should have a title with 3 words",
+                  "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
+                },
+                  {
                   "subtitle":"benefit should have a subtitle with two words",
                   "title":"benefit should have a title with 3 words",
                   "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
@@ -134,42 +155,52 @@ export const ResponseProvider = ({ children }) => {
 
       const message = responseGPT.choices[0].message.content;
       console.log("message:", message);
-      const parsedMessage = JSON.parse(message); 
+      const parsedMessage = JSON.parse(message);
       setResponseState(parsedMessage);
       await postResponseToAPI(parsedMessage);
     } catch (error) {
       console.error("Error fetching response:", error);
     }
   };
- const postResponseToAPI = async (data) => {
-    try {
-      const response = await fetch(
-        "http://localhost:8000/api/v1/data/promptData",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
 
-      if (!response.ok) {
-        throw new Error("Failed to post data to the API");
+
+const postResponseToAPI = async (data) => {
+  try {
+    
+    const savedIndex = localStorage.getItem("selectedTemplateIndex");
+
+    const dataToSend = {
+      ...data,
+      savedIndex,
+    };
+
+
+    const response = await fetch(
+      "http://localhost:8000/api/v1/data/promptData",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSend),
       }
+    );
 
-      const result = await response.json();
-      console.log(result.data._id);
-      setId(result.data._id);
-      console.log(result.data._id); 
-
-    } catch (error) {
-      console.error("Error posting response to API:", error);
+    if (!response.ok) {
+      throw new Error("Failed to post data to the API");
     }
-  };
+
+    const result = await response.json();
+    console.log(result.data._id);
+    setId(result.data._id);
+    console.log(result.data._id);
+  } catch (error) {
+    console.error("Error posting response to API:", error);
+  }
+};
 
   return (
-    <ResponseContext.Provider value={{ responseState, fetchResponse,id }}>
+    <ResponseContext.Provider value={{ responseState, fetchResponse, id }}>
       {children}
     </ResponseContext.Provider>
   );

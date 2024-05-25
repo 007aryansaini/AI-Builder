@@ -4,11 +4,10 @@ import { PiHashStraightBold } from "react-icons/pi";
 import { IconContext } from "react-icons/lib";
 import { BsArrowUp } from "react-icons/bs";
 import { useTemplate } from "../../../../context/AiContext";
-function AboutUs() {
-    const { responseState } = useTemplate();
-    const parsedContent = JSON.parse(responseState.content);
-    const tagline = parsedContent.data.tagline;
-    const description = parsedContent.description;
+function AboutUs({ promptData, parts }) {
+
+  const tagline = parts?.tagline;
+  const description = parts?.descriptions;
   return (
     <div className="bg-[#111111] ">
       <div className="flex justify-center items-center w-[100%]">
@@ -34,8 +33,7 @@ function AboutUs() {
             </div>
             <div>
               <h5 className="text-[14px]">
-                The logo of the largest bubble company has <br /> become our
-                flag in the fight against lies!
+              {description}
               </h5>
             </div>
             <IconContext.Provider value={{}}>

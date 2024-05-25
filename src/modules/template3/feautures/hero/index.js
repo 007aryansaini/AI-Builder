@@ -2,12 +2,9 @@ import React from "react";
 import { LuCopy } from "react-icons/lu";
 import { useTemplate } from "../../../../context/AiContext";
 
-export default function Hero() {
-   const { responseState } = useTemplate();
-   const parsedContent = JSON.parse(responseState.content);
-   const tagline = parsedContent.data.tagline;
-   const description = parsedContent.description;
-  
+export default function Hero({ promptData, parts }) {
+  const tagline = parts?.tagline;
+  const description = parts?.description;
 
   return (
     <div className="relative">
@@ -17,7 +14,7 @@ export default function Hero() {
             <div className="col-span-6">
               <div className="flex items-start flex-col">
                 <h3 className="text-[64px]  font-bold font-lexend geo leading-[68px]">
-                 {tagline}
+                  {tagline}
                 </h3>
                 <p className="text-[34px] w-[700px] font-lexend leading-[40px] my-[3%] text-white/70 ">
                   {description}
