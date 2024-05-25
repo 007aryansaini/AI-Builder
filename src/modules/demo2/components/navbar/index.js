@@ -17,7 +17,7 @@ export default function Navbar({ promptData, parts }) {
                 </h4>
               </div>
             </Link>
-            <nav className="  flex gap-12 text-[20px] items-center font-bold text-white uppercase">
+            <nav className="  flex gap-12 text-[20px] items-center font-bold text-white uppercase list-none">
               {navs &&
                 navs.map((nav, index) => (
                   <div key={index}>

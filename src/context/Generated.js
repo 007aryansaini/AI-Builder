@@ -43,10 +43,15 @@ export const AiProvider = ({ children }) => {
     // Add more templates as needed
   ]);
 
-  const contextValue = {
-    templates,
-  };
+ const selectTemplate = () => {
+   const randomIndex = Math.floor(Math.random() * templates.length);
+   return templates[randomIndex].id; 
+ };
 
+ const contextValue = {
+   templates,
+   selectTemplate,
+ };
   return (
     <AiContext.Provider value={contextValue}>{children}</AiContext.Provider>
   );
