@@ -11,13 +11,10 @@ const openAi = new OpenAI({
 const ResponseContext = createContext();
 
 export const ResponseProvider = ({ children }) => {
-
-     const { selectTemplate } = useAi() || {};
+  const { newIndex } = useAi() || {}; // Add default value {}
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [responseState, setResponseState] = useState(null);
   const [id, setId] = useState(null);
-
- 
 
   const fetchResponse = async (title, description, limit, part1, purpose) => {
     try {
@@ -155,9 +152,9 @@ export const ResponseProvider = ({ children }) => {
       console.log("message:", message);
       const parsedMessage = JSON.parse(message);
       setResponseState(parsedMessage);
-        const savedIndex = selectTemplate();
-        setSelectedTemplateId(savedIndex);
-     
+    
+      console.log("hello" + newIndex);
+
       // await postResponseToAPI(parsedMessage);
     } catch (error) {
       console.error("Error fetching response:", error);
@@ -166,12 +163,9 @@ export const ResponseProvider = ({ children }) => {
 
   // const postResponseToAPI = async (data) => {
   //   try {
-  //     const savedIndex = selectTemplate();
-  //     setSelectedTemplateId(savedIndex);
-
   //     const dataToSend = {
   //       ...data,
-  //       savedIndex,
+  //       savedIndex: selectedTemplateId,
   //     };
 
   //     const response = await fetch(
