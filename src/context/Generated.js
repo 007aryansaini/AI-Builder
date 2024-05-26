@@ -90,7 +90,7 @@ console.log(selectedTemplate)
 
   const contextValue = {
     templates,
-  
+    selectedTemplate,
   };
 
   return (

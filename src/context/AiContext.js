@@ -11,7 +11,7 @@ const openAi = new OpenAI({
 const ResponseContext = createContext();
 
 export const ResponseProvider = ({ children }) => {
-  const { newIndex } = useAi() || {}; // Add default value {}
+  const { selectedTemplate } = useAi(); // Add default value {}
   const [selectedTemplateId, setSelectedTemplateId] = useState(null);
   const [responseState, setResponseState] = useState(null);
   const [id, setId] = useState(null);
@@ -152,45 +152,45 @@ export const ResponseProvider = ({ children }) => {
       console.log("message:", message);
       const parsedMessage = JSON.parse(message);
       setResponseState(parsedMessage);
-    
-      console.log("hello" + newIndex);
 
-      // await postResponseToAPI(parsedMessage);
+      console.log(selectedTemplate);
+
+      await postResponseToAPI(parsedMessage);
     } catch (error) {
       console.error("Error fetching response:", error);
     }
   };
 
-  // const postResponseToAPI = async (data) => {
-  //   try {
-  //     const dataToSend = {
-  //       ...data,
-  //       savedIndex: selectedTemplateId,
-  //     };
+  const postResponseToAPI = async (data) => {
+    try {
+      const dataToSend = {
+        ...data,
+        savedIndex: selectedTemplate,
+      };
 
-  //     const response = await fetch(
-  //       "http://localhost:8000/api/v1/data/promptData",
-  //       {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(dataToSend),
-  //       }
-  //     );
+      const response = await fetch(
+        "http://localhost:8000/api/v1/data/promptData",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(dataToSend),
+        }
+      );
 
-  //     if (!response.ok) {
-  //       throw new Error("Failed to post data to the API");
-  //     }
+      if (!response.ok) {
+        throw new Error("Failed to post data to the API");
+      }
 
-  //     const result = await response.json();
-  //     console.log(result.data._id);
-  //     setId(result.data._id);
-  //     console.log(result.data._id);
-  //   } catch (error) {
-  //     console.error("Error posting response to API:", error);
-  //   }
-  // };
+      const result = await response.json();
+      console.log(result.data._id);
+      setId(result.data._id);
+      console.log(result.data._id);
+    } catch (error) {
+      console.error("Error posting response to API:", error);
+    }
+  };
 
   return (
     <ResponseContext.Provider value={{ responseState, fetchResponse, id }}>

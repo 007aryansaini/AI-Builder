@@ -23,21 +23,13 @@ export default function GeneratedPage() {
       } catch (error) {
         console.error("Error fetching the saved index:", error);
         
-        // showNextTemplate();
+        
       }
     };
 
     fetchSavedIndex();
   }, [templates]);
 
-  // const showNextTemplate = () => {
-  //   let availableIndices = templates.map((_, index) => index);
-
-  //   const randomIndex =
-  //     availableIndices[Math.floor(Math.random() * availableIndices.length)];
-  //   setSelectedTemplateIndex(randomIndex);
-  //   localStorage.setItem("selectedTemplateIndex", randomIndex);
-  // };
 
   if (selectedTemplateIndex === null) {
     return <div>No templates to show</div>;
