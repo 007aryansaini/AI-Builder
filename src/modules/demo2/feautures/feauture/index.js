@@ -2,6 +2,7 @@ import React from 'react'
 import bgg from "../../assets/features.png";
 import refresh from "../../assets/refresh.png";
 import mini from "../../assets/robotmini.png";
+import BuildTabs from '../../components/ui/tabs/buildtab/BuildTab';
 function Feauture() {
   return (
     <div>
@@ -14,6 +15,14 @@ function Feauture() {
                   Features to help you take the best decisions
                 </h3>
                 <img src={refresh} className="w-[40px] mt-[2%]" alt="refresh" />
+              </div>
+            </div>
+            <div className="flex w-fulll items-end justify-end mt-[10%]">
+              <div className=" w-[50%] h-[600px] ">
+                <div className="bg-[#020617] w-full h-full rounded-[28px] pt-[8%] pl-[6%]">
+                  <BuildTabs/>
+                </div>
+               
               </div>
             </div>
           </div>

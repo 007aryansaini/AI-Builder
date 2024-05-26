@@ -22,6 +22,7 @@ module.exports = {
         sansita: ["Sansita Swashed", "system-ui"],
         lexend: ["Lexend", "sans-serif"],
         stick: ["Stick No Bills", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
     },
   },

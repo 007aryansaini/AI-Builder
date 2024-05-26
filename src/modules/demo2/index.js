@@ -6,6 +6,7 @@ import Feauture from "./feautures/feauture";
 import FAQ from "./feautures/faq";
 import Footer from "./feautures/footer";
 import { useParams } from "react-router-dom";
+import Token from "./feautures/token";
 
 
 export default function Demo2() {
@@ -38,6 +39,7 @@ export default function Demo2() {
       <Hero promptData={promptData} parts={parts} />
       <Source promptData={promptData} parts={parts} />
       <Feauture promptData={promptData} parts={parts} />
+      <Token promptData={promptData} parts={parts} />
       <FAQ promptData={promptData} parts={parts} />
       <Footer />
     </div>
