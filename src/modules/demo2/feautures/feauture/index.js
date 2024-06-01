@@ -1,9 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import bgg from "../../assets/features.png";
 import refresh from "../../assets/refresh.png";
 import mini from "../../assets/robotmini.png";
 import BuildTabs from '../../components/ui/tabs/buildtab/BuildTab';
+import { useParams } from 'react-router-dom';
 function Feauture() {
+   const { id } = useParams();
+   const [promptData, setPromptData] = useState(null);
+
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await fetch(
+           `http://localhost:8000/api/v1/data/promptData/${id}`
+         );
+         if (!response.ok) {
+           throw new Error("Failed to fetch data");
+         }
+         const data = await response.json();
+         setPromptData(data.data);
+       } catch (error) {
+         console.error("Error fetching data:", error);
+       }
+     };
+
+     fetchData();
+   }, [id]);
+
+   const parts = promptData?.data;
   return (
     <div>
       <div style={style.bg}>
@@ -20,9 +44,8 @@ function Feauture() {
             <div className="flex w-fulll items-end justify-end mt-[10%]">
               <div className=" w-[50%] h-[600px] ">
                 <div className="bg-[#020617] w-full h-full rounded-[28px] pt-[8%] pl-[6%]">
-                  <BuildTabs/>
+                  <BuildTabs promptData={promptData} parts={parts} />
                 </div>
-               
               </div>
             </div>
           </div>

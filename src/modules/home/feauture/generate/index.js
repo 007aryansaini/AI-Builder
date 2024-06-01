@@ -55,8 +55,8 @@ export default function GenerateAI() {
     await fetchResponse(
       template.websiteTitle,
       template.description,
-      100,
-      "body,footer,aboutus,mission,vision,feautures,tagline,benefit1,benefit2,benefit3"
+
+      "body,footer,aboutus,mission,vision,feautures,tagline,descriptions,benefits,tabfeau,faq,navLinks,stats,brand_paragraph,brands,testimonial,explore,short_desc"
     );
 
     console.log(template);

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import Cryzpto from "../modules/cryzpto";
-import Temp1 from "../modules/temp1";
+
 import Quickwswap from "../modules/quickswap";
 import Template1 from "../modules/template1";
 import Template4 from "../modules/template3";
@@ -14,7 +14,7 @@ export const AiProvider = ({ children }) => {
     {
       id: "0",
       name: "Template 1",
-      info: <Template1 />,
+      info: <Demo2 />,
       content: {
         tagline: "Tagline for Template 1",
         description: "Description for Template 1",
@@ -32,7 +32,7 @@ export const AiProvider = ({ children }) => {
     {
       id: "2",
       name: "Template 3",
-      info: <Cryzpto />,
+      info: <Demo2 />,
       content: {
         tagline: "Tagline for Template 3",
         description: "Description for Template 3",

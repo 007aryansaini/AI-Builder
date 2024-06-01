@@ -17,6 +17,7 @@ import GenerateAI from "./modules/home/feauture/generate";
 import Preview from "./modules/preview";
 import PreviewSite from "./modules/previewsite";
 import Previeww from "./pages/Preview";
+import Demo3 from "./modules/demo3/page/Home";
 
 
 
@@ -33,17 +34,19 @@ function Routess() {
         <Route path="/generate" element={<GenerateAI />} />
         <Route path="/generated" element={<Preview />} />
         <Route path="/preview/:id" element={<Previeww />} />
+        <Route path="/demo-3" element={<Demo3 />} />
+        <Route path="/demo-4" element={<Template3 />} />
         <Route path="/generated-page/:id" element={<GeneratedPage />} />
-        <Route element={<PrivateRoutes />}>
-          <Route path="/generated-template-8" element={<Template1 />} />
-          <Route path="/generated-template-6" element={<Desktop />} />
-          <Route path="/generated-template-7" element={<Template7 />} />
-          <Route path="/generated-template-4" element={<Template4 />} />
-          <Route path="/generated-template-5" element={<Cryzpto />} />
+        <Route path="/generated-template-8" element={<Template1 />} />
 
-          <Route path="/generated-template-1" element={<Template1 />} />
-          <Route path="/generated-template-2" element={<Omega />} />
-        </Route>
+        <Route path="/generated-template-6" element={<Desktop />} />
+        <Route path="/generated-template-7" element={<Template7 />} />
+        <Route path="/demo-5" element={<Template4 />} />
+        <Route path="/generated-template-5" element={<Cryzpto />} />
+
+        <Route path="/generated-template-1" element={<Template1 />} />
+        <Route path="/generated-template-2" element={<Omega />} />
+        <Route element={<PrivateRoutes />}></Route>
       </Routes>
     </div>
   );

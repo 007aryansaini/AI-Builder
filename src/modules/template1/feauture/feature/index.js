@@ -5,7 +5,7 @@ import { GoHubot } from "react-icons/go";
 export default function Feauture({ promptData, parts }) {
   const benefits = parts?.benefits.slice(0, 4);
   const about = parts?.aboutus;
-
+ 
   return (
     <div className="bg-[#000000] w-full font-poppins text-white mt-[10%] px-[5%] ">
       <div className="max-w-[1440px] mx-auto">
@@ -38,6 +38,7 @@ export default function Feauture({ promptData, parts }) {
               </div>
             ))}
         </div>
+       
       </div>
     </div>
   );

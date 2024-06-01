@@ -13,13 +13,32 @@ export default function Hero({ promptData, parts }) {
           <div className="grid grid-cols-12 w-full">
             <div className="col-span-6">
               <div className="flex items-start flex-col">
-                <h3 className="text-[64px]  font-bold font-lexend geo leading-[68px]">
-                  {tagline}
+                <h3 className="text-[60px]  font-bold font-lexend geo leading-[68px]">
+                  Descover geoNFTs in The Real World
                 </h3>
-                <p className="text-[34px] w-[700px] font-lexend leading-[40px] my-[3%] text-white/70 ">
-                  {description}
+                <p className="text-[28px] w-[650px] font-lexend leading-[40px] my-[3%] text-white/70 ">
+                  Lost Worlds is the first location based NFT platform, bridging
+                  the gap between web2 and web3
                 </p>
-                <button className=" mt-[2%] text-[34px] font-lexend font-medium text-white  px-6 py-[8px] border-[4px] border-[#558F26] bg-[#020204]">
+                <button
+                  className=" mt-[2%] text-[2
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+
+
+
+
+
+
+      
+                  
+                  px] font-lexend font-medium text-white  px-6 py-[6px] border-[4px] border-[#558F26] bg-[#020204]"
+                >
                   Explore
                 </button>
               </div>

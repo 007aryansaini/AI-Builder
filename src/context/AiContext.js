@@ -16,11 +16,11 @@ export const ResponseProvider = ({ children }) => {
   const [responseState, setResponseState] = useState(null);
   const [id, setId] = useState(null);
 
-  const fetchResponse = async (title, description, limit, part1, purpose) => {
+  const fetchResponse = async (title, description, part1, purpose) => {
     try {
       const prompt = `
         Generate content for my website with the title ${title} and description ${description} and the ${purpose}. I'd like to generate more parts of the website.
-        Generate title, description, and parts ${part1} with word limit ${limit} for this item in the following parsable JSON object given an example below:   
+        Generate title, description, and parts ${part1}  for this item in the following parsable JSON object given an example below:   
         {
           "title": "Title the website ",
           "data":{
@@ -73,6 +73,38 @@ export const ResponseProvider = ({ children }) => {
                   "paragraph":"Benefit of the site (one paragraph sentence and space between the paragraph)"
                 },
               ],
+                "tabfeau":[
+                {
+                  "subtitle":"subtitle why we should use  the website in two words",
+                  "title":"title why we should use  the website in three words",
+                  "paragraph":" paragraph why we should use the website in twenty-two words",
+                  "mini":[
+                    {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                  ]
+                },
+               {
+                  "subtitle":"subtitle why we should use  the website in two words",
+                  "title":"title why we should use  the website in three words",
+                  "paragraph":" paragraph why we should use the website in twenty-two words",
+                  "mini":[
+                  {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                  ]
+                },
+               {
+                  "subtitle":"subtitle why we should use  the website in two words",
+                  "title":"title why we should use  the website in three words",
+                  "paragraph":" paragraph why we should use the website in twenty-two words",
+                  "mini":[
+                    {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                     {"title":"mini feature in 3 words"},
+                  ]
+                },
+              ],
                "faq":[
                 {
                   "question":"faq should be a question asked",
@@ -106,6 +138,11 @@ export const ResponseProvider = ({ children }) => {
                 {"title":""},
                 {"title":""}
               ],
+               "stats":[
+                {"title":"stats with number and percent to talk about growth (forexample: 70% Locked and gradual Vesting After 24 months and overall should be 4 words only)"},
+                 {"title":"stats with number and percent to talk about growth (forexample: 70% Locked and gradual Vesting After 24 months and overall should be 4 words only)"},
+              
+              ],
               "brand_paragraph":"a paragraph text that talks about brands that trusts (15 words only)",
                "brands":[
                 {"title":"a brand that trusts the website"},
@@ -131,12 +168,16 @@ export const ResponseProvider = ({ children }) => {
         }
         don't add any key to any of the response just provide just response
         don't change the title provided from the input use the title in generating the rest content
+        generate all the contents completely in JSON format
       `;
 
       const responseGPT = await openAi.chat.completions.create({
         model: "gpt-3.5-turbo",
+        response_format: { type: "json_object" },
+
         temperature: 0,
-        max_tokens: 1000,
+        max_tokens: 2000,
+
         messages: [
           { role: "system", content: "You are a website content generator" },
           { role: "user", content: prompt },
@@ -150,6 +191,15 @@ export const ResponseProvider = ({ children }) => {
 
       const message = responseGPT.choices[0].message.content;
       console.log("message:", message);
+
+      if (responseGPT.choices[0].finish_reason === "length") {
+        console.log(
+          "Response is partial. Max tokens or conversation limit exceeded."
+        );
+        // Handle partial response
+        return;
+      }
+
       const parsedMessage = JSON.parse(message);
       setResponseState(parsedMessage);
 

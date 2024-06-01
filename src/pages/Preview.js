@@ -31,7 +31,6 @@ const Previeww = () => {
         <div>
           <h1>{promptData.title}</h1>
           <p>{parts.tagline}</p>
-        
         </div>
       ) : (
         <p>Loading...</p>
