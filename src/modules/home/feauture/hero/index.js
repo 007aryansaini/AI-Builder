@@ -32,7 +32,7 @@ export default function Hero() {
           Updated: AI Integrated
         </h5>
         <h1 className="text-white font-clash sm:text-[50px] text-[32px] text-center font-bold sm:leading-[50px] leading-[36px]">
-          Empower Your Web3 Presence<br/>  with AI-Powered Builder
+          Empower Your Web3 <br className="sm:flex hidden"/> Presence with AI Builder
         </h1>
         <motion.p className="text-white text-center font-circular sm:text-lg py-3 sm:py-[1.5%]">
           Create unique brand identity,generate and pushlish{" "}
