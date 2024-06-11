@@ -97,6 +97,7 @@ export default function GenerateAI() {
                     name="websiteTitle"
                     value={template.websiteTitle}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     required
                   />
                 </div>
@@ -108,6 +109,7 @@ export default function GenerateAI() {
                     name="description"
                     value={template.description}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     required
                   ></textarea>
                 </div>
@@ -119,6 +121,7 @@ export default function GenerateAI() {
                     name="purpose"
                     value={template.purpose}
                     onChange={handleInputChange}
+                    autoComplete="off"
                     required
                   ></textarea>
                 </div>
