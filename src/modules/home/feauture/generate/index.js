@@ -7,6 +7,9 @@ import ResponseContext, { useTemplate } from "../../../../context/AiContext";
 
 import { MultiStepLoader as Loader } from "../../components/ui/loader/index";
 import { IconSquareRoundedX } from "@tabler/icons-react";
+import { useAccount, usePublicClient, useSendTransaction } from "wagmi";
+import { toast } from "react-toastify";
+import { parseEther } from "viem";
 
 const loadingStates = [
   {
@@ -36,7 +39,14 @@ const loadingStates = [
 ];
 
 export default function GenerateAI() {
+
+
+  const account = useAccount()
+  const publicClient = usePublicClient()
+  const {sendTransactionAsync} = useSendTransaction()
+  
   const [loading, setLoading] = useState(false);
+  const [TxLoading , setTxLoading] = useState(false);
 
   const navigate = useNavigate();
   
@@ -46,12 +56,36 @@ export default function GenerateAI() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setLoading(true);
+try{    
+   setTxLoading(true);
+    if(!account?.isConnected){
+      setLoading(false)
+      alert("Connect your wallet to proceed");
+      return
+    }
+
     if (!template.websiteTitle || !template.description || !template.purpose) {
       setLoading(false);
       return;
     }
+ 
+  
+    const txHash = await sendTransactionAsync({
+      to: '0xF2a76e5C2fF5023c901aD8D2C5b20b12678d394F',
+      value: parseEther('0.25')
+    })
 
+    
+    const receipt = await publicClient.waitForTransactionReceipt({hash : txHash});
+    
+
+
+    
+
+
+   
+   if(receipt.status === "success") { 
+    setLoading(true);
     await fetchResponse(
       template.websiteTitle,
       template.description,
@@ -63,6 +97,17 @@ export default function GenerateAI() {
     handleInputChange(event);
     navigate(`/generated`);
     setLoading(false);
+  }else{
+      alert("Tx not mined successfully...");
+      return
+    }
+  }catch(error){
+    console.log(error)
+  }finally{
+     setTxLoading(false);
+  }
+
+    
   };
   const handleReset = () => {
     setTemplate({
@@ -72,8 +117,14 @@ export default function GenerateAI() {
     });
   };
 
+
   return (
+    <div>
+      <div className="flex justify-end p-3">
+      <w3m-button />
+      </div>
     <div className="flex items-center   justify-center">
+      
       <div className="bg-black text-white w-[90%] pt-[5%] h-[100vh]">
         <div class="grid sm:grid-cols-12 w-full h-full">
           <div class="sm:flex hidden col-span-4 w-full h-full">
@@ -144,7 +195,7 @@ export default function GenerateAI() {
                 <input
                   className="cursor-pointer bg-white h-[44px] w-full text-black rounded-[6px] font-medium "
                   type="submit"
-                  value={loading ? "Generating..." : "Generate my site"} // Render different text based on loading state
+                  value={loading ? "Generating..." :  account?.isConnected ? TxLoading ? "Wait for Tx to mine..." : "Generate my site" : "Connect wallet and pay fee first"} // Render different text based on loading state
                   onClick={handleSubmit}
                   disabled={loading}
                 />
@@ -153,6 +204,7 @@ export default function GenerateAI() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
